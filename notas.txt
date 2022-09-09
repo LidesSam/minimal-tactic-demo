@@ -1,0 +1,33 @@
+constrains
+Only player vs Ai/com/player
+
+States()
+
+Turno P-> turno com -turn
+
+Turno
+
+
+Turn States 
+Nav: cursor can move freely 
+SelectedUnit: disable actions and show action menu
+*move-> SelectMoveState
+*atk-> selectTargetState
+*back-> Navstate
+
+
+selectMoveState(grid select)
+*back/select samegrid->SelectedUnitState
+*select avaible grid-> MovingIT
+	movingIT(Wait)/phase???
+		->Confirm
+		->cancel-> return unit to initial position->select moveState
+selectMoveState(grid select)
+*back/select samegrid->SelectedUnitState
+*select target grid-> MovingIT
+		->Confirm->AtkAnim->Unit Inactive->Nav
+		->cancel-> return unit to initial position->select moveState
+
+
+
+

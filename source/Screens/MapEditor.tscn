@@ -1,0 +1,25 @@
+[gd_scene format=2]
+
+[node name="MapEditor" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+anchor_right = 1.0
+margin_bottom = 16.0
+rect_min_size = Vector2( 0, 64 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PopupMenu" type="PopupMenu" parent="HBoxContainer"]
+margin_right = 20.0
+margin_bottom = 64.0
+
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="TileMap" type="TileMap" parent="Node2D"]
+format = 1

@@ -1,0 +1,91 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://source/Screens/MainMenu.gd" type="Script" id=1]
+
+[node name="MainMenu" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 32.0
+margin_top = 32.0
+margin_right = -32.0
+margin_bottom = -32.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PanelContainer" type="Control" parent="HBoxContainer"]
+margin_right = 190.0
+margin_bottom = 536.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="mainScreen" type="VBoxContainer" parent="HBoxContainer"]
+margin_left = 194.0
+margin_right = 765.0
+margin_bottom = 536.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 3.0
+
+[node name="Control" type="Control" parent="HBoxContainer/mainScreen"]
+margin_right = 571.0
+margin_bottom = 120.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="HBoxContainer/mainScreen"]
+margin_top = 124.0
+margin_right = 571.0
+margin_bottom = 138.0
+text = "Minimal Tactics"
+align = 1
+valign = 1
+
+[node name="Control2" type="Control" parent="HBoxContainer/mainScreen"]
+margin_top = 142.0
+margin_right = 571.0
+margin_bottom = 263.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="NewGameBtn" type="Button" parent="HBoxContainer/mainScreen"]
+margin_top = 267.0
+margin_right = 571.0
+margin_bottom = 387.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "New Game"
+
+[node name="mapEditBtn" type="Button" parent="HBoxContainer/mainScreen"]
+margin_top = 391.0
+margin_right = 571.0
+margin_bottom = 411.0
+text = "Map Editor"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Control3" type="Control" parent="HBoxContainer/mainScreen"]
+margin_top = 415.0
+margin_right = 571.0
+margin_bottom = 536.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="PanelContainer2" type="Control" parent="HBoxContainer"]
+margin_left = 769.0
+margin_right = 960.0
+margin_bottom = 536.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[connection signal="pressed" from="HBoxContainer/mainScreen/NewGameBtn" to="." method="_on_NewGameBtn_pressed"]
+[connection signal="pressed" from="HBoxContainer/mainScreen/mapEditBtn" to="." method="_on_mapEditBtn_pressed"]

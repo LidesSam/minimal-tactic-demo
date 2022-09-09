@@ -1,0 +1,29 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://source/Objects/ActionList.gd" type="Script" id=1]
+[ext_resource path="res://assets/Images/system/sword cursor.png" type="Texture" id=2]
+
+[node name="ActionList" type="PopupPanel"]
+margin_left = 128.0
+margin_top = 64.0
+margin_right = 256.0
+margin_bottom = 144.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="cursor" type="Sprite" parent="."]
+position = Vector2( 16, 8 )
+texture = ExtResource( 2 )
+
+[node name="options" type="VBoxContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 4.0
+margin_right = -4.0
+margin_bottom = -4.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
