@@ -1,89 +1,71 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=2 format=3 uid="uid://qh8q5o6ri7ii"]
 
-[ext_resource path="res://source/Screens/MainMenu.gd" type="Script" id=1]
+[ext_resource type="Script" path="res://source/Screens/MainMenu.gd" id="1"]
 
 [node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-script = ExtResource( 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 0
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 32.0
-margin_top = 32.0
-margin_right = -32.0
-margin_bottom = -32.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
+offset_left = 32.0
+offset_top = 32.0
+offset_right = -32.0
+offset_bottom = -32.0
 
 [node name="PanelContainer" type="Control" parent="HBoxContainer"]
-margin_right = 190.0
-margin_bottom = 536.0
+layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="mainScreen" type="VBoxContainer" parent="HBoxContainer"]
-margin_left = 194.0
-margin_right = 765.0
-margin_bottom = 536.0
+layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 3.0
 
 [node name="Control" type="Control" parent="HBoxContainer/mainScreen"]
-margin_right = 571.0
-margin_bottom = 120.0
+layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="Label" type="Label" parent="HBoxContainer/mainScreen"]
-margin_top = 124.0
-margin_right = 571.0
-margin_bottom = 138.0
+layout_mode = 2
 text = "Minimal Tactics"
-align = 1
-valign = 1
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Control2" type="Control" parent="HBoxContainer/mainScreen"]
-margin_top = 142.0
-margin_right = 571.0
-margin_bottom = 263.0
+layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="NewGameBtn" type="Button" parent="HBoxContainer/mainScreen"]
-margin_top = 267.0
-margin_right = 571.0
-margin_bottom = 387.0
+layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 text = "New Game"
 
 [node name="mapEditBtn" type="Button" parent="HBoxContainer/mainScreen"]
-margin_top = 391.0
-margin_right = 571.0
-margin_bottom = 411.0
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
 text = "Map Editor"
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="Control3" type="Control" parent="HBoxContainer/mainScreen"]
-margin_top = 415.0
-margin_right = 571.0
-margin_bottom = 536.0
+layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="PanelContainer2" type="Control" parent="HBoxContainer"]
-margin_left = 769.0
-margin_right = 960.0
-margin_bottom = 536.0
+layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 

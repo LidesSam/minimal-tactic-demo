@@ -17,11 +17,11 @@ func _ready():
 
 
 func _on_NewGameBtn_pressed():
-	get_tree().change_scene("res://source/Screens/World.tscn")
+	get_tree().change_scene_to_file("res://source/Screens/World.tscn")
 	pass # Replace with function body.
 	
 
 
 func _on_mapEditBtn_pressed():
-	get_tree().change_scene("res://source/Screens/MapEditor.tscn")
+	get_tree().change_scene_to_file("res://source/Screens/MapEditor.tscn")
 	pass # Replace with function body.

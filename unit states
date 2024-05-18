@@ -1,0 +1,19 @@
+unit state
+
+->idle state
+	 -> select 
+	 -> wait
+	 
+->select
+     -> idle 
+	 -> move
+	 -> atk
+	 -> wait
+	
+->wait
+	->start-turn->idle
+
+move <-> onmove 
+			-> atack
+			-> wait
+atack<-> confirm -> wait

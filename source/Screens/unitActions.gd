@@ -6,13 +6,13 @@ extends PopupPanel
 # var b = "text"
 
 var op=0
-export var defaultOptions=["move","atk","wait"]
-onready var cursor=$cursor
-onready var actionsEnabled=[true,true,true]
+@export var defaultOptions=["move","atk","wait"]
+@onready var cursor=$cursor
+@onready var actionsEnabled=[true,true,true]
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	op=0
-	updateCursorPos()
+	update_cursor_pos()
 	pass # Replace with function body.
 
 func _process(delta):
@@ -20,23 +20,23 @@ func _process(delta):
 		if(Input.is_action_just_pressed("ui_up")):
 			moveUp()
 		if(Input.is_action_just_pressed("ui_down")):
-			moveDown()
+			move_down()
 
-func moveDown():
+func move_down():
 	op+=1
 	if op>2:
 		op=0
-	updateCursorPos()
+	update_cursor_pos()
 	
 func moveUp():
 	op-=1
 	
 	if op<0:
 		op=2
-	updateCursorPos()
+	update_cursor_pos()
 	
 		
-func updateCursorPos():
+func update_cursor_pos():
 	var opLBL= $options.get_child(op)
 	cursor.position = opLBL.get_begin()+Vector2(16,opLBL.get_line_height()/2)
 	

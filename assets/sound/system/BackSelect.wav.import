@@ -1,13 +1,14 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
-path="res://.import/BackSelect.wav-b6be34be9be5066cd3bac819944572b2.sample"
+type="AudioStreamWAV"
+uid="uid://dujqke82g6ul0"
+path="res://.godot/imported/BackSelect.wav-b6be34be9be5066cd3bac819944572b2.sample"
 
 [deps]
 
 source_file="res://assets/sound/system/BackSelect.wav"
-dest_files=[ "res://.import/BackSelect.wav-b6be34be9be5066cd3bac819944572b2.sample" ]
+dest_files=["res://.godot/imported/BackSelect.wav-b6be34be9be5066cd3bac819944572b2.sample"]
 
 [params]
 
@@ -17,5 +18,7 @@ force/max_rate=false
 force/max_rate_hz=44100
 edit/trim=false
 edit/normalize=false
-edit/loop=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
 compress/mode=0

@@ -1,96 +1,139 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=19 format=3 uid="uid://bese3bsc8aver"]
 
-[ext_resource path="res://source/Objects/Unit.gd" type="Script" id=1]
-[ext_resource path="res://assets/Images/Units/soldier.png" type="Texture" id=2]
-[ext_resource path="res://assets/Images/Units/spearman.png" type="Texture" id=3]
-[ext_resource path="res://assets/Images/Units/bandit.png" type="Texture" id=4]
-[ext_resource path="res://assets/Images/Units/archer.png" type="Texture" id=5]
+[ext_resource type="Script" path="res://source/Objects/Unit.gd" id="1"]
+[ext_resource type="Texture2D" uid="uid://qw4hfvyboedp" path="res://assets/Images/Units/soldier.png" id="2"]
+[ext_resource type="Texture2D" uid="uid://bs0xllxl5tyjq" path="res://assets/Images/Units/spearman.png" id="3"]
+[ext_resource type="Texture2D" uid="uid://bufob2l4dvd6n" path="res://assets/Images/Units/bandit.png" id="4"]
+[ext_resource type="Texture2D" uid="uid://bfi356hbg8hc0" path="res://assets/Images/Units/archer.png" id="5"]
+[ext_resource type="Texture2D" uid="uid://dkwuul6wahagv" path="res://assets/Images/system/golden-coin.png" id="6"]
+[ext_resource type="Script" path="res://addons/fsmgear/source/Fsm.gd" id="7_55ja5"]
+[ext_resource type="Script" path="res://addons/fsmgear/source/FsmState.gd" id="8_i8ecw"]
+[ext_resource type="Script" path="res://source/unitStates/unitActiveFSS.gd" id="8_r1ia1"]
 
-[sub_resource type="Shader" id=1]
+[sub_resource type="Shader" id="1"]
 code = "uniform bool grayscale = false;
 
 if (grayscale) {
     COLOR.rgb = vec3(dot(COLOR.rgb, vec3(0.299, 0.587, 0.114)));
 }"
 
-[sub_resource type="ShaderMaterial" id=2]
-shader = SubResource( 1 )
+[sub_resource type="ShaderMaterial" id="2"]
+render_priority = 0
+shader = SubResource("1")
 
-[sub_resource type="AtlasTexture" id=6]
-atlas = ExtResource( 3 )
-region = Rect2( 0, 0, 16, 16 )
+[sub_resource type="AtlasTexture" id="7"]
+atlas = ExtResource("5")
+region = Rect2(0, 0, 16, 16)
 
-[sub_resource type="AtlasTexture" id=3]
-atlas = ExtResource( 2 )
-region = Rect2( 0, 0, 16, 16 )
+[sub_resource type="AtlasTexture" id="4"]
+atlas = ExtResource("4")
+region = Rect2(0, 0, 16, 16)
 
-[sub_resource type="AtlasTexture" id=4]
-atlas = ExtResource( 4 )
-region = Rect2( 0, 0, 16, 16 )
+[sub_resource type="AtlasTexture" id="5"]
+atlas = ExtResource("2")
+region = Rect2(0, 16, 16, 16)
 
-[sub_resource type="AtlasTexture" id=7]
-atlas = ExtResource( 5 )
-region = Rect2( 0, 0, 16, 16 )
+[sub_resource type="AtlasTexture" id="3"]
+atlas = ExtResource("2")
+region = Rect2(0, 0, 16, 16)
 
-[sub_resource type="AtlasTexture" id=5]
-atlas = ExtResource( 2 )
-region = Rect2( 0, 16, 16, 16 )
+[sub_resource type="AtlasTexture" id="6"]
+atlas = ExtResource("3")
+region = Rect2(0, 0, 16, 16)
 
-[sub_resource type="SpriteFrames" id=8]
-animations = [ {
-"frames": [ SubResource( 6 ) ],
+[sub_resource type="SpriteFrames" id="8"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("7")
+}],
 "loop": true,
-"name": "spearman-idle-red",
+"name": &"acher-idle-red",
 "speed": 5.0
 }, {
-"frames": [ SubResource( 3 ) ],
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("4")
+}],
 "loop": true,
-"name": "soldier-idle-red",
+"name": &"bandid-idle-red",
 "speed": 5.0
 }, {
-"frames": [ SubResource( 4 ) ],
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("5")
+}],
 "loop": true,
-"name": "bandid-idle-red",
+"name": &"soldier-idle-blue",
 "speed": 5.0
 }, {
-"frames": [ SubResource( 7 ) ],
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("3")
+}],
 "loop": true,
-"name": "acher-idle-red",
+"name": &"soldier-idle-red",
 "speed": 5.0
 }, {
-"frames": [ SubResource( 5 ) ],
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("6")
+}],
 "loop": true,
-"name": "soldier-idle-blue",
+"name": &"spearman-idle-red",
 "speed": 5.0
-} ]
+}]
 
-[sub_resource type="RectangleShape2D" id=9]
-extents = Vector2( 8, 8 )
+[sub_resource type="RectangleShape2D" id="9"]
+size = Vector2(8, 8)
 
 [node name="Unit" type="Node2D"]
-script = ExtResource( 1 )
+script = ExtResource("1")
 
-[node name="spr" type="AnimatedSprite" parent="."]
-material = SubResource( 2 )
-frames = SubResource( 8 )
-animation = "acher-idle-red"
+[node name="pmark" type="Sprite2D" parent="."]
+position = Vector2(8, 8)
+texture = ExtResource("6")
+
+[node name="spr" type="AnimatedSprite2D" parent="."]
+material = SubResource("2")
+sprite_frames = SubResource("8")
+animation = &"acher-idle-red"
 centered = false
 
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2( 8, 8 )
-shape = SubResource( 9 )
+position = Vector2(8, 8)
+shape = SubResource("9")
 
 [node name="ColorRect" type="ColorRect" parent="."]
-margin_left = 13.0339
-margin_top = 13.0417
-margin_right = 16.0339
-margin_bottom = 16.0417
-color = Color( 0, 0, 0, 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
+offset_left = 13.0339
+offset_top = 13.0417
+offset_right = 16.0339
+offset_bottom = 16.0417
+color = Color(0, 0, 0, 1)
+
+[node name="fsm" type="Node" parent="."]
+script = ExtResource("7_55ja5")
+
+[node name="active" type="Node" parent="fsm"]
+script = ExtResource("8_r1ia1")
+
+[node name="move" type="Node" parent="fsm"]
+script = ExtResource("8_i8ecw")
+
+[node name="inactive" type="Node" parent="fsm"]
+script = ExtResource("8_i8ecw")
+
+[node name="debug" type="Label" parent="."]
+offset_left = -16.0
+offset_top = -16.0
+offset_right = 32.0
+offset_bottom = 4.0
+theme_override_font_sizes/font_size = 12
+text = "sss"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [connection signal="area_shape_entered" from="Area2D" to="." method="_on_Area2D_area_shape_entered"]
 [connection signal="body_shape_entered" from="Area2D" to="." method="_on_Area2D_body_shape_entered"]

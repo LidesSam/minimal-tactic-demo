@@ -15,22 +15,22 @@ __meta__ = {
 }
 
 [node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer"]
-margin_right = 510.0
-margin_bottom = 600.0
+offset_right = 510.0
+offset_bottom = 600.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="Panel" type="Panel" parent="HBoxContainer/VBoxContainer"]
-margin_right = 510.0
+offset_right = 510.0
 
 [node name="TouchScreenButton" type="TouchScreenButton" parent="HBoxContainer/VBoxContainer/Panel"]
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="HBoxContainer"]
-margin_left = 514.0
-margin_right = 1024.0
-margin_bottom = 600.0
+offset_left = 514.0
+offset_right = 1024.0
+offset_bottom = 600.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="Panel" type="Panel" parent="HBoxContainer/VBoxContainer2"]
-margin_right = 510.0
+offset_right = 510.0

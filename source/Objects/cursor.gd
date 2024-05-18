@@ -59,10 +59,11 @@ func set_Grid_Pos():
 	position = gridPos*gsize
 	$Timer.start()
 	move=false
-	get_parent().updateDataDisplay()
+	get_parent().update_data_display()
 
 func get_Grid_Pos():
 	return gridPos
+	
 func _on_Timer_timeout():
 	move=true
 	pass # Replace with function body.
