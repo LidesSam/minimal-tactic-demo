@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://qh8q5o6ri7ii"]
+[gd_scene load_steps=3 format=3 uid="uid://qh8q5o6ri7ii"]
 
 [ext_resource type="Script" path="res://source/Screens/MainMenu.gd" id="1"]
+[ext_resource type="Texture2D" uid="uid://dkwuul6wahagv" path="res://assets/Images/system/golden-coin.png" id="2_fhspt"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -11,63 +12,41 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="."]
-layout_mode = 0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 32.0
-offset_top = 32.0
-offset_right = -32.0
-offset_bottom = -32.0
-
-[node name="PanelContainer" type="Control" parent="HBoxContainer"]
+[node name="tittle" type="Label" parent="."]
 layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-
-[node name="mainScreen" type="VBoxContainer" parent="HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-size_flags_stretch_ratio = 3.0
-
-[node name="Control" type="Control" parent="HBoxContainer/mainScreen"]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-
-[node name="Label" type="Label" parent="HBoxContainer/mainScreen"]
-layout_mode = 2
+offset_left = 136.0
+offset_top = 43.0
+offset_right = 439.0
+offset_bottom = 137.0
 text = "Minimal Tactics"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Control2" type="Control" parent="HBoxContainer/mainScreen"]
+[node name="mainScreen" type="VBoxContainer" parent="."]
 layout_mode = 2
+offset_left = 136.0
+offset_top = 184.0
+offset_right = 439.0
+offset_bottom = 292.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
+size_flags_stretch_ratio = 3.0
 
-[node name="NewGameBtn" type="Button" parent="HBoxContainer/mainScreen"]
+[node name="newGameBtn" type="Button" parent="mainScreen"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 text = "New Game"
 
-[node name="mapEditBtn" type="Button" parent="HBoxContainer/mainScreen"]
+[node name="mapEditBtn" type="Button" parent="mainScreen"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 text = "Map Editor"
 
-[node name="Control3" type="Control" parent="HBoxContainer/mainScreen"]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
+[node name="cursor" type="Sprite2D" parent="."]
+texture = ExtResource("2_fhspt")
+offset = Vector2(-8, 0)
 
-[node name="PanelContainer2" type="Control" parent="HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-
-[connection signal="pressed" from="HBoxContainer/mainScreen/NewGameBtn" to="." method="_on_NewGameBtn_pressed"]
-[connection signal="pressed" from="HBoxContainer/mainScreen/mapEditBtn" to="." method="_on_mapEditBtn_pressed"]
+[connection signal="pressed" from="mainScreen/newGameBtn" to="." method="_on_new_game_btn_pressed"]
+[connection signal="pressed" from="mainScreen/mapEditBtn" to="." method="_on_map_edit_btn_pressed"]
