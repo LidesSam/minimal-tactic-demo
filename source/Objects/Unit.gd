@@ -58,19 +58,22 @@ func defineAs(NAME="soldier",owner="red"):
 	unitName=NAME
 
 	sprite=$spr
+	lp=maxlp
 	match unitName:
 		"soldier":
 #			atk=10
 #			def=10
 #			maxlp=10
-			lp=maxlp
+
 			sprite.play("soldier-idle-red")
 		"spearman":
 			
 			sprite.play("spearman-idle-red")
 		"archer":
-			
+			minAtkArea=2
+			maxAtkArea=3
 			sprite.play("archer-idle-red")
+			
 		"bandit":
 			
 			sprite.play("bandit-idle-red")

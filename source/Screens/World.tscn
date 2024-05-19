@@ -156,6 +156,7 @@ drag_horizontal_offset = 1.0
 drag_vertical_offset = 1.0
 
 [node name="unitActions" parent="Cam" instance=ExtResource("5")]
+visible = false
 offset_left = 227.0
 offset_top = 72.0
 offset_right = 355.0

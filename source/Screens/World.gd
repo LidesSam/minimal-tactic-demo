@@ -86,6 +86,8 @@ func test():
 		unit.defineAs("swordman")
 		if(i==1):
 			unit.defineAs("spearman")
+		if(i==2):
+			unit.defineAs("archer")
 		unit.set_in_grid_position(Vector2(1+i*2,2))
 		unit.add_to_group("alphared")
 		add_child(unit)
@@ -96,6 +98,8 @@ func test():
 		unit.defineAs("spearman","blue")
 		if(i==1):
 			unit.defineAs("swordman","blue")
+		if(i==2):
+			unit.defineAs("archer","blue")
 		unit.set_in_grid_position(Vector2(5+i*2,2+5))
 		unit.add_to_group("alphablue")
 		add_child(unit)
@@ -176,7 +180,7 @@ func target_unit(unit):
 	pass	
 
 # unoptimized algoritm
-func show_grid_area(origin:Vector2i,size,color="#55000055"):
+func show_grid_area(origin:Vector2i, skip ,size,color="#55000055",):
 	enabledCell =[]
 	var lastSeach =[]
 	var cgrid=gridHover[origin.x][origin.y]
@@ -191,11 +195,15 @@ func show_grid_area(origin:Vector2i,size,color="#55000055"):
 			# get around tiles
 			for lcell in get_limit_cell(pos):
 				if $TileMap.get_cell_source_id(0,lcell,false)!=-1:
+					
+					var skipable=abs(lcell.x-origin.x)+abs(lcell.y-origin.y)
+			
+					if(skipable>=skip):
+						enabledCell.push_back(gridHover[lcell.x][lcell.y])
+						enabledCellGridPos.push_back(Vector2(lcell.x,lcell.y))
+						gridHover[lcell.x][lcell.y].show()
+						gridHover[lcell.x][lcell.y].color=color
 					nLastSeach.push_back(lcell)
-					enabledCell.push_back(gridHover[lcell.x][lcell.y])
-					enabledCellGridPos.push_back(Vector2(lcell.x,lcell.y))
-					gridHover[lcell.x][lcell.y].show()
-					gridHover[lcell.x][lcell.y].color=color
 					lastSeach=nLastSeach
 
 func get_limit_cell(origin=Vector2(0,0)):
@@ -225,12 +233,12 @@ func dissable_grid():
 
 func show_unit_moves():
 	if(hoverUnit!=null):
-		show_grid_area(hoverUnit.gpos,hoverUnit.moves,Color.BLUE) 
+		show_grid_area(hoverUnit.gpos,0,hoverUnit.moves,Color.BLUE) 
 		cursor.onRestrictedMode = true
 
 func show_unit_atk():
 	if(hoverUnit!=null):
-		show_grid_area(hoverUnit.gpos,hoverUnit.minAtkArea,Color.RED) 
+		show_grid_area(hoverUnit.gpos,hoverUnit.minAtkArea,hoverUnit.maxAtkArea,Color.RED) 
 		cursor.onRestrictedMode = true
 
 func position_is_enabledCell(pos= Vector2(0,0)):

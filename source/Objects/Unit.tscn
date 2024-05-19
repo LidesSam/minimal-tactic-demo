@@ -48,7 +48,7 @@ animations = [{
 "texture": SubResource("7")
 }],
 "loop": true,
-"name": &"acher-idle-red",
+"name": &"archer-idle-red",
 "speed": 5.0
 }, {
 "frames": [{
@@ -97,7 +97,7 @@ texture = ExtResource("6")
 [node name="spr" type="AnimatedSprite2D" parent="."]
 material = SubResource("2")
 sprite_frames = SubResource("8")
-animation = &"acher-idle-red"
+animation = &"archer-idle-red"
 centered = false
 
 [node name="Area2D" type="Area2D" parent="."]

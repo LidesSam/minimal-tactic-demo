@@ -7,3 +7,4 @@ res://source/Screens/World.gd
 res://source/Objects/ActionList.gd
 res://source/Screens/unitActions.gd
 res://source/Objects/ActionList.tscn
+res://source/Objects/Unit.gd
