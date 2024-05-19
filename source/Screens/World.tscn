@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" path="res://source/Objects/cursor.tscn" id="4"]
 [ext_resource type="Script" path="res://source/Screens/worldStates/WStartTurnState.gd" id="4_gobov"]
 [ext_resource type="PackedScene" uid="uid://drr4i5mfyaeg" path="res://source/Objects/ActionList.tscn" id="5"]
-[ext_resource type="Script" path="res://source/Screens/playerturn.gd" id="5_qdo4b"]
+[ext_resource type="Script" path="res://source/Screens/worldStates/playerturn.gd" id="5_qdo4b"]
 [ext_resource type="AudioStream" uid="uid://dujqke82g6ul0" path="res://assets/sound/system/BackSelect.wav" id="6"]
 [ext_resource type="Script" path="res://source/Screens/worldStates/unitSelectedState.gd" id="6_n3ut2"]
 [ext_resource type="Script" path="res://addons/fsmgear/source/FsmState.gd" id="6_qbdv3"]
@@ -156,7 +156,6 @@ drag_horizontal_offset = 1.0
 drag_vertical_offset = 1.0
 
 [node name="unitActions" parent="Cam" instance=ExtResource("5")]
-visible = false
 offset_left = 227.0
 offset_top = 72.0
 offset_right = 355.0

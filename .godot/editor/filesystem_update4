@@ -4,3 +4,6 @@ res://assets/themes/maintheme.tres
 res://source/Screens/World.tscn
 res://source/Objects/Unit.tscn
 res://source/Screens/World.gd
+res://source/Objects/ActionList.gd
+res://source/Screens/unitActions.gd
+res://source/Objects/ActionList.tscn
