@@ -33,13 +33,13 @@ var enabledCellGridPos =[]
 @onready var unitActMenu=$Cam/unitActions
 @onready var turnActMenu=$Cam/turnActions
 @onready var stateLbl = $stateLbl
+@onready var round=0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	set_process_input(true)
 	cursor.gridDim= gridDim
 #	show_grid_area(Vector2(2,2),2);
-	
 	test()
 	fsm.autoload(self)
 	
@@ -52,6 +52,11 @@ func _ready():
 	fsm.set_debug_on($stateLbl)
 	
 	generate_overlay_grid()
+	day_end()
+	
+func day_end():
+	round+=1
+	$Cam/turn.text=str("day:",round)
 func free_unit_selector():
 	selectedUnitMode== UNIT_UNSELECTED
 func unitIsSelected():

@@ -169,3 +169,8 @@ offset_top = 8.0
 offset_right = 572.0
 offset_bottom = 319.0
 defaultOptions = ["info", "save", "end turn"]
+
+[node name="turn" type="Label" parent="Cam"]
+offset_right = 40.0
+offset_bottom = 23.0
+text = "Turn_1"

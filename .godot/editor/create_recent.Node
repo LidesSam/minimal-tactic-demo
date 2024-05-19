@@ -1,7 +1,7 @@
+Label
 Sprite2D
 Panel
 PopupPanel
-Label
 FsmState
 Node
 Fsm
