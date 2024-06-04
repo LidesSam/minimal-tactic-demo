@@ -278,7 +278,7 @@ func display_unit_actions(moveAct=true):
 	unitActMenu.show()
 	unitActMenu.set_actions_from_units(hoverUnit)
 
-func hideUnitActions():
+func hide_unit_actions():
 	cursor.canMove=true
 	unitActMenu.hide()
 

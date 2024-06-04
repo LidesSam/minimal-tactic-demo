@@ -18,6 +18,7 @@ func _process(delta):
 	pass
 
 func handleInput(actowner,event):
+
 	if Input.is_action_just_pressed("ui_action"):
 		if(onConfirm):
 			match(mode):
@@ -56,3 +57,6 @@ func unselect(actowner):
 
 func state_ended():
 	return endstate
+func exit(actowner):
+	super(actowner)
+	actowner.hide_unit_actions()
