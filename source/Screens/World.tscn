@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://clhpww7udejta"]
+[gd_scene load_steps=15 format=3 uid="uid://clhpww7udejta"]
 
 [ext_resource type="TileSet" path="res://assets/Map/mainTilemap.tres" id="1"]
 [ext_resource type="Script" path="res://source/Screens/World.gd" id="2"]
@@ -12,6 +12,7 @@
 [ext_resource type="Script" path="res://source/Screens/worldStates/unitSelectedState.gd" id="6_n3ut2"]
 [ext_resource type="Script" path="res://addons/fsmgear/source/FsmState.gd" id="6_qbdv3"]
 [ext_resource type="AudioStream" uid="uid://dy62xdhd3h0oj" path="res://assets/sound/system/coin.wav" id="7"]
+[ext_resource type="Script" path="res://source/Screens/worldStates/foeTurnState.gd" id="7_tekxw"]
 [ext_resource type="Theme" uid="uid://deqfpx1m2278t" path="res://assets/themes/maintheme.tres" id="8"]
 
 [node name="World" type="Node2D"]
@@ -39,7 +40,7 @@ script = ExtResource("5_qdo4b")
 script = ExtResource("6_n3ut2")
 
 [node name="foeturn" type="Node" parent="fsm"]
-script = ExtResource("6_qbdv3")
+script = ExtResource("7_tekxw")
 
 [node name="endbattle" type="Node" parent="fsm"]
 script = ExtResource("6_qbdv3")
@@ -164,10 +165,10 @@ offset_bottom = 200.0
 
 [node name="turnActions" parent="Cam" instance=ExtResource("5")]
 visible = false
-offset_left = 350.0
-offset_top = 8.0
-offset_right = 572.0
-offset_bottom = 319.0
+offset_left = 368.0
+offset_top = 16.0
+offset_right = 560.0
+offset_bottom = 312.0
 defaultOptions = ["info", "save", "end turn"]
 
 [node name="turn" type="Label" parent="Cam"]

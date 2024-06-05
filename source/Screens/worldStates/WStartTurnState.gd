@@ -2,12 +2,14 @@ extends "res://addons/fsmgear/source/FsmState.gd"
 
 var endstate=false
 var units=null
+
 func _ready():
 	super()
 	
 	pass
 
 func enter(actowner):
+	actowner.turnGroup="alphared"
 	
 	actowner.stateLbl.text="state:start"
 	units= actowner.units

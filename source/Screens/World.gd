@@ -1,11 +1,5 @@
 extends Node2D
 
-
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
-var turn=0
-
 @onready var tempUnit = preload("res://source/Objects/Unit.tscn")
 @onready var fsm = $fsm
 
@@ -19,11 +13,10 @@ var selectedUnitMode=0
 static var UNIT_UNSELECTED=0 
 static var UNIT_SELECTED=1 
 
+#grid related vars
 var gridHover=[]
-
 @onready var gridDim= Vector2(20,12)
 @onready var gridHoverNode=$gridhover
-
 var enabledCell =[]
 var enabledCellGridPos =[]
 
@@ -33,6 +26,7 @@ var enabledCellGridPos =[]
 @onready var unitActMenu=$Cam/unitActions
 @onready var turnActMenu=$Cam/turnActions
 @onready var stateLbl = $stateLbl
+@onready var turn=0
 @onready var round=0
 
 # Called when the node enters the scene tree for the first time.
@@ -47,18 +41,26 @@ func _ready():
 	
 	fsm.addStateTransition("playerturn","unitselected",unitIsSelected)
 	fsm.addStateTransition("unitselected","playerturn",$fsm/unitselected.state_ended)
+	fsm.addStateTransition("playerturn","foeturn",foeturn)
+	fsm.addStateTransition("foeturn","turnstart",$fsm/foeturn.state_ended)
+	
 	$fsm/unitselected.exitaction=free_unit_selector;
 	fsm.startState()
 	fsm.set_debug_on($stateLbl)
 	
 	generate_overlay_grid()
 	day_end()
-	
+
+func foeturn():
+	return turnGroup!="alphared"
+		
 func day_end():
 	round+=1
 	$Cam/turn.text=str("day:",round)
+
 func free_unit_selector():
 	selectedUnitMode== UNIT_UNSELECTED
+	
 func unitIsSelected():
 	return selectedUnitMode== UNIT_SELECTED
 	
@@ -106,7 +108,6 @@ func test():
 		units.push_back(unit)
 	pass
 
-
 #move to a new clas data display
 func update_data_display():
 #	print(unit.get_unitName())
@@ -129,7 +130,6 @@ func _process(delta):
 	fsm.fsmUpdate(delta)
 	#reset_hover_unit()
 	pass
-	
 	
 func select_hover_unit():
 	if(hoverUnit!=null):
@@ -160,10 +160,10 @@ func hover_unit(unit):
 		hoverUnit=unit
 		if(hoverUnit==null):
 			$Label.text="hover:none"
-			print("please: none")
+			#print("please: none")
 		else:
 			$Label.text=str("hover:",hoverUnit.unitName)
-			print("please:",hoverUnit.get_unitName())
+			#print("please:",hoverUnit.get_unitName())
 		update_data_display()
 	else:
 		target_unit(unit)		
@@ -298,5 +298,4 @@ func inactiveUnit():
 func get_enabled_cell():
 	return enabledCell;
 
-func turnEnd():
 	pass
