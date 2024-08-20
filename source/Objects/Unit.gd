@@ -1,28 +1,22 @@
 extends Node2D
 
-
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
 var playerID=0
 
 @export var unitName = "name"
 @onready var sprite=$spr
-var atk=1
-var def=1
-var maxlp=10
-var lp=10
-var moves=3
+
 var gpos=Vector2(0,0)
 var actions=["move","atk","wait"]
 var actEnabled =[true,true,true]
 var framesPath ="res://assets/Images/Units/"
 
-
-var indirect = false
-
 var minAtkArea=1
 var maxAtkArea=1
+var atk=1
+var def=1
+var maxlp=10
+var lp=10
+var moves=3
 
 var state="active"
 
@@ -32,8 +26,8 @@ var fsm
 func _ready():	
 	fsm= $fsm
 	fsm.autoload(self)
-	fsm.addStateTransition("active","move",$fsm/active.state_ended)
-	fsm.addStateTransition("active","move",$fsm/active.state_ended)
+	#fsm.addStateTransition("active","move",$fsm/active.state_ended)
+	#fsm.addStateTransition("active","move",$fsm/active.state_ended)
 	#fsm.addStateTransition("move","active",$fsm/turnstart.state_ended)
 	#fsm.addStateTransition("inactive","active",$fsm/turnstart.state_ended)
 	#fsm.addStateTransition("move","active",$fsm/turnstart.state_ended)
@@ -61,29 +55,21 @@ func defineAs(NAME="soldier",owner="red"):
 	lp=maxlp
 	match unitName:
 		"soldier":
-#			atk=10
-#			def=10
-#			maxlp=10
-
 			sprite.play("soldier-idle-red")
 		"spearman":
-			
 			sprite.play("spearman-idle-red")
 		"archer":
 			minAtkArea=2
 			maxAtkArea=3
 			sprite.play("archer-idle-red")
-			
 		"bandit":
-			
 			sprite.play("bandit-idle-red")
 		_:
 			defineAs("soldier",owner)
 			pass	
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+func _process(delta):
+	pass
 
 func set_in_grid_position(_gpos = Vector2(0,0)):
 	gpos=_gpos
@@ -100,7 +86,6 @@ func deselect():
 	state="active"
 	$ColorRect.color="#ffffff";
 	
-
 func inactive():
 	state="inactive"
 	$ColorRect.color="#ff0000";
@@ -132,9 +117,12 @@ func _on_Area2D_area_shape_entered(area_id, area, area_shape, local_shape):
 	
 func get_spr_texture():
 	return $AnimatedSprite2D.frame
+
 func get_unitName():
 	return unitName
+	
 func get_move_range():
 	return moves
+
 func get_atk_range():
 	return atk

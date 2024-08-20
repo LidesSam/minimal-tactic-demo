@@ -156,19 +156,16 @@ func reset_hover_unit():
 
 func hover_unit(unit):
 	if(selectedUnitMode==0):
-
 		hoverUnit=unit
 		if(hoverUnit==null):
 			$Label.text="hover:none"
-			#print("please: none")
 		else:
 			$Label.text=str("hover:",hoverUnit.unitName)
-			#print("please:",hoverUnit.get_unitName())
 		update_data_display()
 	else:
 		target_unit(unit)		
 	pass
-	
+
 func target_unit(unit):
 	targetUnit=unit
 	if(targetUnit==null):
@@ -228,7 +225,6 @@ func dissable_grid():
 		grid.hide()
 	enabledCell =[]
 	enabledCellGridPos =[]
-#	hoverUnit=null
 	cursor.onRestrictedMode = false
 
 func show_unit_moves():
@@ -255,7 +251,6 @@ func move_unit_to_cursor_pos():
 		$ok_sound.play()
 		print("aloha")
 		hoverUnit.move_used()
-#		->
 		return true
 	else:
 		$back_sound.play()

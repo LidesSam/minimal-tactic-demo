@@ -5,6 +5,6 @@ res://assets/themes/maintheme.tres
 res://source/Screens/World.tscn
 res://source/Objects/Unit.tscn
 res://source/Objects/ActionList.tscn
+res://source/Objects/Unit.gd
+res://source/unitStates/unitActiveFSS.gd
 res://source/Screens/World.gd
-res://source/Screens/worldStates/playerturn.gd
-res://source/Screens/worldStates/foeTurnState.gd
