@@ -4,10 +4,9 @@ var endstate=false
 var onTurnMenu=false
 var onConfirm=false
 var mode=""
+
 func _ready():
-	super()
-	
-	pass
+	super()	
 
 func enter(actowner):
 	super(actowner)
@@ -16,13 +15,11 @@ func enter(actowner):
 	onConfirm=false
 
 func update(actowner,delta):
-	
 	pass
 
 func handleInput(actowner,event):
 	if Input.is_action_just_pressed("ui_action"):
 			mode = actowner.turnActMenu.get_current_action()
-			print("pt: mode:",mode)
 			if(onTurnMenu):
 				match(mode):
 					"end turn":
@@ -42,6 +39,7 @@ func handleInput(actowner,event):
 			actowner.cursor.canMove=true
 		else:
 			actowner.turnActMenu.show()
+			actowner.turnActMenu.set_actions_from_units(actowner.selected_unit)
 			onTurnMenu=true
 			actowner.cursor.canMove=false
 			
@@ -62,6 +60,7 @@ func state_ended():
 func exit(actowner):
 	actowner.turnActMenu.hide()
 	onTurnMenu=false
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass

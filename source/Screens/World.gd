@@ -133,9 +133,10 @@ func _process(delta):
 	
 func select_hover_unit():
 	if(hoverUnit!=null):
-		selectedUnitMode=UNIT_SELECTED
-		hoverUnit.select()
-		return true
+		if(hoverUnit.state!="inactive"):
+			selectedUnitMode=UNIT_SELECTED
+			hoverUnit.select()
+			return true
 	return false
 		
 func _input(event):

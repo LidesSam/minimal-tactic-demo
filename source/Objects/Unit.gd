@@ -6,8 +6,10 @@ var playerID=0
 @onready var sprite=$spr
 
 var gpos=Vector2(0,0)
+
 var actions=["move","atk","wait"]
 var actEnabled =[true,true,true]
+
 var framesPath ="res://assets/Images/Units/"
 
 var minAtkArea=1
@@ -100,6 +102,7 @@ func startTurn():
 #for test this gonna put it right away, instead, the smooth move gona be made later
 func moveTo(_gpos = Vector2(0,0)):
 	$spr.position=Vector2(0,0)
+	actEnabled[0]=false
 	set_in_grid_position(_gpos)
 	pass	
 
