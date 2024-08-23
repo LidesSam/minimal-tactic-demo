@@ -38,6 +38,7 @@ func _ready():
 	fsm.set_debug_on($debug)
 		
 	pass # Replace with function body.
+	
 func move_used():
 	actEnabled[0]==false
 	
@@ -57,21 +58,36 @@ func defineAs(NAME="soldier",owner="red"):
 	lp=maxlp
 	match unitName:
 		"soldier":
+			maxlp=3
 			sprite.play("soldier-idle-red")
 		"spearman":
+			maxlp=4
 			sprite.play("spearman-idle-red")
 		"archer":
+			maxlp=2
 			minAtkArea=2
 			maxAtkArea=3
 			sprite.play("archer-idle-red")
 		"bandit":
+			maxlp=2
 			sprite.play("bandit-idle-red")
 		_:
 			defineAs("soldier",owner)
 			pass	
-
+	lp=maxlp
+	update_lp()
+	
 func _process(delta):
 	pass
+func update_lp():
+	$lp.text=str(lp,"/",maxlp)
+
+func hurt(point=0):
+	lp-=point
+	if(lp<=0):
+		lp=0
+	update_lp()
+
 
 func set_in_grid_position(_gpos = Vector2(0,0)):
 	gpos=_gpos
