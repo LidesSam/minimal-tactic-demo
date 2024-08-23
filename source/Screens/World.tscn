@@ -80,6 +80,13 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 7
 
+[node name="ownerLbl" type="Label" parent="DataDisplay/tunit/data"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 6
+text = "Owner"
+uppercase = true
+
 [node name="namelbl" type="Label" parent="DataDisplay/tunit/data"]
 layout_mode = 2
 size_flags_horizontal = 3

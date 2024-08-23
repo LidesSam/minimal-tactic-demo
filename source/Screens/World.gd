@@ -84,28 +84,38 @@ func generate_overlay_grid():
 #create a few unit to test
 func test():
 	for i in range(3):
+		print("creatinf pla unit red:",i)
 		var unit = tempUnit.instantiate()
-		unit.defineAs("swordman")
-		if(i==1):
-			unit.defineAs("spearman")
-		if(i==2):
-			unit.defineAs("archer")
 		unit.set_in_grid_position(Vector2(1+i*2,2))
 		unit.add_to_group("alphared")
+		match(i):
+			0:
+				unit.defineAs("swordman")
+			1:
+				unit.defineAs("spearman")
+			2:
+				unit.defineAs("archer")
+			_:
+				unit.defineAs("swordman")
+		
 		add_child(unit)
 		units.push_back(unit)
-		
 	for i in range(3):
+		print("creatinf pla unit blue:",i)
 		var unit = tempUnit.instantiate()
-		unit.defineAs("spearman","blue")
-		if(i==1):
-			unit.defineAs("swordman","blue")
-		if(i==2):
-			unit.defineAs("archer","blue")
 		unit.set_in_grid_position(Vector2(5+i*2,2+5))
 		unit.add_to_group("alphablue")
 		add_child(unit)
 		units.push_back(unit)
+		match(i):
+			0:
+				unit.defineAs("swordman","blue")
+			1:
+				unit.defineAs("spearman","blue")
+			2:
+				unit.defineAs("archer","blue")
+			_:
+				unit.defineAs("swordman","blue")
 	pass
 
 #move to a new clas data display
@@ -114,10 +124,12 @@ func update_data_display():
 	$DataDisplay.show()
 #	$DataDisplay/Sprite.texture = unit.get_spr_texture()
 	if(hoverUnit==null):
+		$DataDisplay/tunit/data/ownerLbl.text= ""
 		$DataDisplay/tunit/data/namelbl.text= ""
 		$DataDisplay/tunit/data/movelbl.text= ""
 		$DataDisplay/tunit/data/atklbl.text= ""
 	else:
+		#$DataDisplay/tunit/data/ownerLb.text= str("Owner: " ,hoverUnit.playerID)
 		$DataDisplay/tunit/data/namelbl.text= str("Name: " ,hoverUnit.get_unitName())
 		$DataDisplay/tunit/data/movelbl.text= str("Moves",hoverUnit.get_move_range())
 		$DataDisplay/tunit/data/atklbl.text= str("Atk:",hoverUnit.get_atk_range())

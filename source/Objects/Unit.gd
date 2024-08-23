@@ -19,6 +19,7 @@ var def=1
 var maxlp=10
 var lp=10
 var moves=3
+var player="red"
 
 var state="active"
 
@@ -51,30 +52,33 @@ func atk_used():
 func can_atack():
 	return actEnabled[1]
 			
-func defineAs(NAME="soldier",owner="red"):
+func defineAs(NAME="soldier",_PLAYER="red"):
+	player=_PLAYER
+	print("pla:",_PLAYER)
 	unitName=NAME
-
+	var anim= str("soldier-idle-",_PLAYER)
 	sprite=$spr
 	lp=maxlp
 	match unitName:
 		"soldier":
 			maxlp=3
-			sprite.play("soldier-idle-red")
+			anim= str("soldier-idle-",_PLAYER)
 		"spearman":
 			maxlp=4
-			sprite.play("spearman-idle-red")
+			anim= str("spearman-idle-",_PLAYER)
 		"archer":
 			maxlp=2
 			minAtkArea=2
 			maxAtkArea=3
-			sprite.play("archer-idle-red")
+			anim= str("archer-idle-",_PLAYER)
 		"bandit":
 			maxlp=2
-			sprite.play("bandit-idle-red")
+			anim= str("bandit-idle-",_PLAYER)
 		_:
-			defineAs("soldier",owner)
+			defineAs("soldier",_PLAYER)
 			pass	
 	lp=maxlp
+	sprite.play(anim)
 	update_lp()
 	
 func _process(delta):

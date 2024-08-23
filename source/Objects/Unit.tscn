@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://bese3bsc8aver"]
+[gd_scene load_steps=21 format=3 uid="uid://bese3bsc8aver"]
 
 [ext_resource type="Script" path="res://source/Objects/Unit.gd" id="1"]
 [ext_resource type="Texture2D" uid="uid://qw4hfvyboedp" path="res://assets/Images/Units/soldier.png" id="2"]
@@ -21,6 +21,10 @@ if (grayscale) {
 render_priority = 0
 shader = SubResource("1")
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_jrl3r"]
+atlas = ExtResource("5")
+region = Rect2(0, 16, 16, 16)
+
 [sub_resource type="AtlasTexture" id="7"]
 atlas = ExtResource("5")
 region = Rect2(0, 0, 16, 16)
@@ -37,12 +41,24 @@ region = Rect2(0, 16, 16, 16)
 atlas = ExtResource("2")
 region = Rect2(0, 0, 16, 16)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_lgjun"]
+atlas = ExtResource("3")
+region = Rect2(0, 16, 16, 16)
+
 [sub_resource type="AtlasTexture" id="6"]
 atlas = ExtResource("3")
 region = Rect2(0, 0, 16, 16)
 
 [sub_resource type="SpriteFrames" id="8"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jrl3r")
+}],
+"loop": true,
+"name": &"archer-idle-blue",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("7")
@@ -77,6 +93,14 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_lgjun")
+}],
+"loop": true,
+"name": &"spearman-idle-blue",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("6")
 }],
 "loop": true,
@@ -97,7 +121,7 @@ texture = ExtResource("6")
 [node name="spr" type="AnimatedSprite2D" parent="."]
 material = SubResource("2")
 sprite_frames = SubResource("8")
-animation = &"archer-idle-red"
+animation = &"spearman-idle-blue"
 centered = false
 
 [node name="Area2D" type="Area2D" parent="."]
