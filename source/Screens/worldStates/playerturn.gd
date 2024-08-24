@@ -4,7 +4,7 @@ var endstate=false
 var onTurnMenu=false
 var onConfirm=false
 var mode=""
-
+var state=""
 func _ready():
 	super()	
 
@@ -13,45 +13,44 @@ func enter(actowner):
 	onTurnMenu=false
 	actowner.cursor.canMove=true
 	onConfirm=false
+	state=""	
 
 func update(actowner,delta):
 	pass
 
 func handleInput(actowner,event):
-	if Input.is_action_just_pressed("ui_action"):
-			mode = actowner.turnActMenu.get_current_action()
-			if(onTurnMenu):
-				match(mode):
+	match (state):
+		"onturnmenu":
+			if Input.is_action_just_pressed("ui_action"):
+				mode = actowner.turnActMenu.get_current_action()
+				print("mode:",mode)
+				match mode:
 					"end turn":
-						actowner.turnGroup="foeturn"
-						onTurnMenu=false
-					_:
-						pass	
-			else:
+						endstate=true
+						actowner.turnGroup="alphablue"
+						
+			if Input.is_action_just_pressed("ui_accept"):
+				actowner.turnActMenu.hide()
+				actowner.cursor.canMove=true	
+				state=""
+				
+			if Input.is_action_just_pressed("ui_back"):
+				actowner.turnActMenu.hide()
+				actowner.cursor.canMove=true
+				state=""
+		_:
+			if Input.is_action_just_pressed("ui_action"):
 				if(actowner.select_hover_unit()):
 					actowner.display_unit_actions()
-	actowner.reset_hover_unit()
-	
-	if Input.is_action_just_pressed("ui_accept"):
-		if(!onConfirm and onTurnMenu):
-			actowner.turnActMenu.hide()
-			onTurnMenu=false
-			actowner.cursor.canMove=true
-		else:
-			actowner.turnActMenu.show()
-			actowner.turnActMenu.set_actions_from_units(actowner.selected_unit)
-			onTurnMenu=true
-			actowner.cursor.canMove=false
+					
+			if Input.is_action_just_pressed("ui_accept"):
+				actowner.turnActMenu.show()
+				state="onturnmenu"
+				actowner.cursor.canMove=false	
+				
 			
-	if Input.is_action_just_pressed("ui_back"):
-		if(onConfirm):
-			mode = actowner.turnActMenu.get_current_action()
-			match(mode):
-				_:
-					pass
-		else:
-			actowner.turnActMenu.hide()
-			actowner.cursor.canMove=true
+				
+	#actowner.reset_hover_unit()			
 	pass
 
 func state_ended():

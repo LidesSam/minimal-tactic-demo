@@ -27,6 +27,9 @@ layer_0/tile_data = PackedInt32Array(0, 131072, 2, 1, 131072, 2, 2, 131072, 2, 3
 
 [node name="gridhover" type="Node2D" parent="."]
 
+[node name="units" type="Node2D" parent="."]
+position = Vector2(0, -1)
+
 [node name="fsm" type="Node" parent="."]
 script = ExtResource("3_4wq1h")
 

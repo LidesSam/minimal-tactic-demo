@@ -21,6 +21,7 @@ var lp=10
 var moves=3
 var player="red"
 
+static var ACTIVE = "active"
 var state="active"
 
 var currentAction="none"
@@ -80,9 +81,13 @@ func defineAs(NAME="soldier",_PLAYER="red"):
 	lp=maxlp
 	sprite.play(anim)
 	update_lp()
-	
+
+func is_foe():
+	return player=="blue"	
+
 func _process(delta):
 	pass
+
 func update_lp():
 	$lp.text=str(lp,"/",maxlp)
 
@@ -92,7 +97,6 @@ func hurt(point=0):
 		lp=0
 	update_lp()
 
-
 func set_in_grid_position(_gpos = Vector2(0,0)):
 	gpos=_gpos
 	position = gpos*16
@@ -101,7 +105,6 @@ func set_in_grid_position(_gpos = Vector2(0,0)):
 #enter in select state and wait for orders
 func select():
 	state="select"
-	$spr
 	$ColorRect.color="#005555";
 
 func deselect():
@@ -134,10 +137,13 @@ func _on_Area2D_body_shape_entered(body_id, body, body_shape, local_shape):
 	pass # Replace with function body.
 
 func _on_Area2D_area_shape_entered(area_id, area, area_shape, local_shape):
-	get_parent().update_data_display()
-	get_parent().hover_unit(self)
+	get_parent().get_parent().update_data_display()
+	get_parent().get_parent().hover_unit(self)
 	pass # Replace with function body.
-	
+
+func is_active():
+	return state== ACTIVE
+
 func get_spr_texture():
 	return $AnimatedSprite2D.frame
 

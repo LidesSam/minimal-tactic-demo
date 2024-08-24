@@ -98,14 +98,15 @@ func test():
 			_:
 				unit.defineAs("swordman")
 		
-		add_child(unit)
+		$units.add_child(unit)
 		units.push_back(unit)
+	
 	for i in range(3):
 		print("creatinf pla unit blue:",i)
 		var unit = tempUnit.instantiate()
 		unit.set_in_grid_position(Vector2(5+i*2,2+5))
 		unit.add_to_group("alphablue")
-		add_child(unit)
+		$units.add_child(unit)
 		units.push_back(unit)
 		match(i):
 			0:
@@ -145,7 +146,7 @@ func _process(delta):
 	
 func select_hover_unit():
 	if(hoverUnit!=null):
-		if(hoverUnit.state!="inactive"):
+		if(hoverUnit.state!="inactive" && !hoverUnit.is_foe()):
 			selectedUnitMode=UNIT_SELECTED
 			hoverUnit.select()
 			return true
@@ -153,6 +154,13 @@ func select_hover_unit():
 		
 func _input(event):
 	fsm.handleInput(event)
+
+func get_disable_active_unit(team="blue"):
+	for unit in $units.get_children():
+		if(unit.player==team && unit.is_active()):
+			unit.inactive()
+			return true
+	return false
 
 func reset_hover_unit():
 	if Input.is_action_just_pressed("ui_right"):
