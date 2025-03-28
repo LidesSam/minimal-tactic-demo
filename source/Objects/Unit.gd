@@ -133,12 +133,12 @@ func move_spr_only(_gpos = Vector2(0,0)):
 	$spr.global_position= _gpos*16
 
 func _on_Area2D_body_shape_entered(body_id, body, body_shape, local_shape):
-	get_parent().update_data_display(self)
+	#get_parent().update_data_display(self)
 	pass # Replace with function body.
 
 func _on_Area2D_area_shape_entered(area_id, area, area_shape, local_shape):
-	get_parent().get_parent().update_data_display()
-	get_parent().get_parent().hover_unit(self)
+	#get_parent().get_parent().update_data_display()
+	#get_parent().get_parent().hover_unit(self)
 	pass # Replace with function body.
 
 func is_active():

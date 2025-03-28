@@ -1,69 +1,55 @@
 extends Node2D
 
+# Grid movement variables
+var gpos = Vector2.ZERO
+var gsize = 16
+var gridDim = Vector2(1, 1)
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
+# Movement control
+var move = false
+var canMove = true
+var onRestrictedMode = false  # Restriction flag
 
-var gridPos=Vector2(0,0)
-var gsize=16
-
-var gridDim=Vector2(1,1)
-#controled by a timer slow down grid movement
-var move=false
-
-#system outside look to "lock the cursor in a position"
-#when other object need it 
-var canMove=true
-var onRestrictedMode=false
-
-# Called when the node enters the scene tree for the first time.
 func _ready():
 	set_Grid_Pos()
-	pass # Replace with function body.
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#
 func _process(delta):
-	if(move and canMove):
-			
-		if Input.is_action_pressed("ui_right"):
-			move_to_cell(gridPos+Vector2(1,0))
-		if Input.is_action_pressed("ui_left"):
-			move_to_cell(gridPos+Vector2(-1,0))
-		if Input.is_action_pressed("ui_up"):
-			move_to_cell(gridPos+Vector2(0,-1))
-		if Input.is_action_pressed("ui_down"):
-			move_to_cell(gridPos+Vector2(0,1))
-			
-#	pass
-func move_to_cell(cell=Vector2(0,0)):
-	if(onRestrictedMode):
-		if(get_parent().position_is_enabledCell(cell)):
-			gridPos=cell
-			set_Grid_Pos()
-	
+	if move and canMove:
+		if Input.is_action_just_pressed("ui_right"):
+			move_to_cell(gpos + Vector2.RIGHT)
+		elif Input.is_action_just_pressed("ui_left"):
+			move_to_cell(gpos + Vector2.LEFT)
+		elif Input.is_action_just_pressed("ui_up"):
+			move_to_cell(gpos + Vector2.UP)
+		elif Input.is_action_just_pressed("ui_down"):
+			move_to_cell(gpos + Vector2.DOWN)
+
+func move_to_cell(target_cell: Vector2):
+	if onRestrictedMode:
+		if get_parent().position_is_enabledCell(target_cell):
+			gpos = target_cell
 	else:
-		gridPos=cell
-		set_Grid_Pos()
-	
+		gpos = target_cell
+	get_parent().check_cursor_hover_unit(gpos)
+	set_Grid_Pos()
+
 func set_Grid_Pos():
-#	if the position(xory) is out of the map correct to th min or max value
-	if(gridPos.x<0): gridPos.x=0
-	if(gridPos.y<0): gridPos.y=0
-	if(gridPos.x>=gridDim.x): gridPos.x=gridDim.x-1
-	if(gridPos.y>=gridDim.y): gridPos.y=gridDim.y-1
-	
-	print(position)
-	position = gridPos*gsize
+	# Clamp grid position within bounds
+	gpos.x = clamp(gpos.x, 0, gridDim.x - 1)
+	gpos.y = clamp(gpos.y, 0, gridDim.y - 1)
+
+	# Apply movement to node position
+	position = gpos * gsize
+
+	# Restart movement cooldown timer
+	move = false
 	$Timer.start()
-	move=false
+
+	# Update parent node display
 	get_parent().update_data_display()
 
 func get_Grid_Pos():
-	return gridPos
-	
+	return gpos
+
 func _on_Timer_timeout():
-	move=true
-	pass # Replace with function body.
+	move = true  # Re-enable movement after timer delay

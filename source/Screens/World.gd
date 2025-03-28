@@ -6,6 +6,7 @@ extends Node2D
 var units=[]
 var turnGroup="alphared"
 
+var selectUnit=null
 var hoverUnit=null
 var targetUnit=null
 
@@ -147,6 +148,7 @@ func _process(delta):
 func select_hover_unit():
 	if(hoverUnit!=null):
 		if(hoverUnit.state!="inactive" && !hoverUnit.is_foe()):
+			selectUnit=hoverUnit
 			selectedUnitMode=UNIT_SELECTED
 			hoverUnit.select()
 			return true
@@ -161,6 +163,7 @@ func get_disable_active_unit(team="blue"):
 			unit.inactive()
 			return true
 	return false
+
 
 func reset_hover_unit():
 	if Input.is_action_just_pressed("ui_right"):
@@ -197,6 +200,17 @@ func target_unit(unit):
 	update_data_display()	
 	pass	
 
+
+func check_cursor_hover_unit(gridPos):
+	var find_unit= false
+	for u in units:
+		if(u.gpos==gridPos):
+			hoverUnit=u
+			find_unit = true
+	if(!find_unit):
+		hoverUnit=null
+		
+	
 # unoptimized algoritm
 func show_grid_area(origin:Vector2i, skip ,size,color="#55000055",):
 	enabledCell =[]
@@ -266,12 +280,12 @@ func position_is_enabledCell(pos= Vector2(0,0)):
 
 func move_unit_to_cursor_pos():
 	if(targetUnit==null):
-		hoverUnit.moveTo(cursor.get_Grid_Pos())
+		selectUnit.moveTo(cursor.get_Grid_Pos())
 #		-> move to after confirmation of move
 		dissable_grid()
 		$ok_sound.play()
 		print("aloha")
-		hoverUnit.move_used()
+		selectUnit.move_used()
 		return true
 	else:
 		$back_sound.play()

@@ -7,18 +7,17 @@ var mode= ""
 func _ready():
 	mode= ""
 	super()
-	pass # Replace with function body.
 
 func enter(actowner):
 	endstate=false
 	onConfirm=false
 	super(actowner)
+	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass
 
 func handleInput(actowner,event):
-
 	if Input.is_action_just_pressed("ui_action"):
 		if(onConfirm):
 			match(mode):
@@ -57,6 +56,7 @@ func unselect(actowner):
 
 func state_ended():
 	return endstate
+	
 func exit(actowner):
 	super(actowner)
 	actowner.hide_unit_actions()

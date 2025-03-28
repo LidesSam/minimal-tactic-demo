@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://source/Screens/World.gd" id="2"]
 [ext_resource type="Texture2D" uid="uid://w3o3rqj2hnwa" path="res://icon.png" id="3"]
 [ext_resource type="Script" path="res://addons/fsmgear/source/Fsm.gd" id="3_4wq1h"]
-[ext_resource type="PackedScene" path="res://source/Objects/cursor.tscn" id="4"]
+[ext_resource type="PackedScene" uid="uid://h871notyumdy" path="res://source/Objects/cursor.tscn" id="4"]
 [ext_resource type="Script" path="res://source/Screens/worldStates/WStartTurnState.gd" id="4_gobov"]
 [ext_resource type="PackedScene" uid="uid://drr4i5mfyaeg" path="res://source/Objects/ActionList.tscn" id="5"]
 [ext_resource type="Script" path="res://source/Screens/worldStates/playerturn.gd" id="5_qdo4b"]
