@@ -1,9 +1,0 @@
-res://default_env.tres
-res://source/Objects/Unit.tscn
-res://source/Objects/ActionList.gd
-res://assets/themes/maintheme.tres
-res://source/Screens/World.tscn
-res://source/Screens/worldStates/playerturn.gd
-res://source/Screens/worldStates/foeTurnState.gd
-res://source/Objects/Unit.gd
-res://source/Screens/World.gd
