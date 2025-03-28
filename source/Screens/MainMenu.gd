@@ -13,8 +13,6 @@ var op=0
 func _ready():
 	set_cursor_pos()
 	
-
-
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass
@@ -34,7 +32,8 @@ func _input(event):
 		options[op].emit_signal("pressed")
 func set_cursor_pos():
 	print("set")
-	$cursor.global_position=options[op].global_position
+
+	$cursor.global_position=options[op].global_position + Vector2(0, options[op].size.y)
 	pass
 
 func _on_new_game_btn_pressed():

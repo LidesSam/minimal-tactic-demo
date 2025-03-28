@@ -46,7 +46,7 @@ text = "Map Editor"
 
 [node name="cursor" type="Sprite2D" parent="."]
 texture = ExtResource("2_fhspt")
-offset = Vector2(-8, 0)
+offset = Vector2(-8, -8)
 
 [connection signal="pressed" from="mainScreen/newGameBtn" to="." method="_on_new_game_btn_pressed"]
 [connection signal="pressed" from="mainScreen/mapEditBtn" to="." method="_on_map_edit_btn_pressed"]
