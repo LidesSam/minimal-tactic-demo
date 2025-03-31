@@ -4,6 +4,7 @@ extends Node2D
 @onready var fsm = $fsm
 
 var units=[]
+
 var turnGroup="alphared"
 
 var selectUnit=null
@@ -157,6 +158,18 @@ func select_hover_unit():
 func _input(event):
 	fsm.handleInput(event)
 
+func check_and_remove_dead_unit(u):
+	if u.lp <= 0:
+		units.erase(u)  # Removes u from the array safely
+		if u.get_parent():  # Ensure u has a parent before removing it
+			u.get_parent().remove_child(u)
+
+	
+func remove_dead_units():
+	for u in units:
+		check_and_remove_dead_unit(u)
+	pass
+	
 func get_disable_active_unit(team="blue"):
 	for unit in $units.get_children():
 		if(unit.player==team && unit.is_active()):
@@ -270,8 +283,19 @@ func show_unit_moves():
 func show_unit_atk():
 	if(hoverUnit!=null):
 		show_grid_area(hoverUnit.gpos,hoverUnit.minAtkArea,hoverUnit.maxAtkArea,Color.RED) 
+		for u in units:
+			if u.player!="red":
+				var target = u.in_act_range(enabledCellGridPos)
+				if(target):
+					$fsm/unitselected.targeteableUnits.push_back(u)
+				
+		
 		cursor.onRestrictedMode = true
-
+func release_atk_select():
+	for u in units:
+			if u.player!="red":
+				u.out_target()
+	
 func position_is_enabledCell(pos= Vector2(0,0)):
 	for cellPos in enabledCellGridPos:
 		if(cellPos== pos):

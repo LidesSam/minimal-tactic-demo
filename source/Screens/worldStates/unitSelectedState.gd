@@ -3,6 +3,8 @@ extends "res://addons/fsmgear/source/FsmState.gd"
 var endstate=false
 var onConfirm=false
 var mode= ""
+var targeteableUnits=[]
+var targetIdx=0
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	mode= ""
@@ -25,7 +27,13 @@ func handleInput(actowner,event):
 					actowner.move_unit_to_cursor_pos()
 					unselect(actowner)
 					pass
+					
 				"atk":
+					targeteableUnits[targetIdx].hurt(actowner.selectUnit.atk)
+					actowner.check_and_remove_dead_unit(targeteableUnits[targetIdx])
+					actowner.selectUnit.inactive()
+					unselect(actowner)
+					actowner.dissable_grid()
 					pass
 		else:
 			mode = actowner.unitActMenu.get_current_action()
@@ -35,19 +43,35 @@ func handleInput(actowner,event):
 					onConfirm=true
 					actowner.cursor.canMove=true
 				"atk":
+					targeteableUnits=[]
 					actowner.show_unit_atk()
 					onConfirm=true
+					targetIdx=0
+					if targeteableUnits.size() > 0:  
+						actowner.get_node("cursor").move_to_cell(targeteableUnits[targetIdx].gpos)
+				
 				"wait":
-					actowner.hoverUnit.inactive()
+					actowner.selectUnit.inactive()
 					unselect(actowner)
 			
 	if Input.is_action_just_pressed("ui_back"):
 		if(onConfirm):
+			match(mode):
+				"move":
+					pass
+				"atk":
+					targeteableUnits=[]
+					actowner.release_atk_select()
+					
+			
 			actowner.dissable_grid()
-			onConfirm=false
 			actowner.display_unit_actions()
+			onConfirm=false
 		else:
 			unselect(actowner)
+			
+	if mode=="atk":
+		pass
 
 func unselect(actowner):
 	actowner.selectedUnitMode= actowner.UNIT_UNSELECTED

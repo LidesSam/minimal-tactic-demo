@@ -20,6 +20,7 @@ func _ready():
 	pass # Replace with function body.
 
 func set_actions_from_units(unit):
+	print(unit)
 	actionsEnabled = unit.actEnabled
 	var i = 0	
 	for e in actionsEnabled:

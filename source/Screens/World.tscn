@@ -134,6 +134,7 @@ text = "Def:"
 
 [node name="Cam" type="Camera2D" parent="."]
 anchor_mode = 0
+limit_left = -64
 drag_horizontal_offset = 1.0
 drag_vertical_offset = 1.0
 

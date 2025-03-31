@@ -141,6 +141,17 @@ func _on_Area2D_area_shape_entered(area_id, area, area_shape, local_shape):
 	#get_parent().get_parent().hover_unit(self)
 	pass # Replace with function body.
 
+func in_act_range(rangepos: Array) -> bool:
+	if gpos in rangepos:
+		$pmark.show()
+		return true
+	else:
+		out_target()
+	return false
+
+func out_target():
+	$pmark.hide()
+
 func is_active():
 	return state== ACTIVE
 
