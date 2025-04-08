@@ -29,11 +29,13 @@ func handleInput(actowner,event):
 					pass
 					
 				"atk":
-					targeteableUnits[targetIdx].hurt(actowner.selectUnit.atk)
-					actowner.check_and_remove_dead_unit(targeteableUnits[targetIdx])
-					actowner.selectUnit.inactive()
-					unselect(actowner)
-					actowner.dissable_grid()
+					if(targeteableUnits.size()>0):
+						if(targeteableUnits[targetIdx]!=null):
+							targeteableUnits[targetIdx].hurt(actowner.selectzxUnit.atk)
+							actowner.check_and_remove_dead_unit(targeteableUnits[targetIdx])
+							actowner.selectUnit.inactive()
+							unselect(actowner)
+							actowner.dissable_grid()
 					pass
 		else:
 			mode = actowner.unitActMenu.get_current_action()
