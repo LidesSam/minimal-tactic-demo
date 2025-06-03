@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=4 uid="uid://clhpww7udejta"]
+[gd_scene load_steps=17 format=4 uid="uid://clhpww7udejta"]
 
 [ext_resource type="TileSet" path="res://assets/Map/mainTilemap.tres" id="1"]
 [ext_resource type="Script" uid="uid://xcpkifba5gij" path="res://source/Screens/World.gd" id="2"]
@@ -15,6 +15,7 @@
 [ext_resource type="AudioStream" uid="uid://dy62xdhd3h0oj" path="res://assets/sound/system/coin.wav" id="7"]
 [ext_resource type="Script" uid="uid://dtep43gdm3ssy" path="res://source/Screens/worldStates/foeTurnState.gd" id="7_tekxw"]
 [ext_resource type="Theme" uid="uid://deqfpx1m2278t" path="res://assets/themes/maintheme.tres" id="8"]
+[ext_resource type="Script" uid="uid://bxsdf4kacl4xc" path="res://source/system/worldDataDisplay.gd" id="11_bv3gq"]
 
 [node name="World" type="Node2D"]
 script = ExtResource("2")
@@ -58,6 +59,7 @@ offset_left = 384.0
 offset_top = 8.0
 offset_right = 568.0
 offset_bottom = 296.0
+script = ExtResource("11_bv3gq")
 
 [node name="tunit" type="Panel" parent="DataDisplay"]
 layout_mode = 2

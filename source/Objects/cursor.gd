@@ -46,7 +46,7 @@ func set_grid_pos():
 	$Timer.start()
 
 	# Update parent node display
-	Global.world.update_data_display()
+	Global.world.dataDisplay.update_data_display(Global.world.hoverUnit)
 
 func get_grid_pos():
 	return gpos

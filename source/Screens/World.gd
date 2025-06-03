@@ -22,6 +22,7 @@ var gridHover=[]  #temp
 var enabledCell =[]
 var enabledCellGridPos =[]
 
+@onready var dataDisplay=$DataDisplay
 @onready var map =$map
 @onready var tilemap =$map/tilemap
 @onready var cursor =$map/cursor
@@ -32,6 +33,7 @@ var enabledCellGridPos =[]
 @onready var stateLbl = $stateLbl
 @onready var turn=0
 @onready var round=0
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -121,24 +123,7 @@ func test():
 				unit.defineAs("swordman","blue")
 	pass
 
-#move to a new clas data display
-func update_data_display():
-#	print(unit.get_unitName())
-	$DataDisplay.show()
-#	$DataDisplay/Sprite.texture = unit.get_spr_texture()
-	if(hoverUnit==null):
-		$DataDisplay/tunit/data/ownerLbl.text= ""
-		$DataDisplay/tunit/data/namelbl.text= ""
-		$DataDisplay/tunit/data/movelbl.text= ""
-		$DataDisplay/tunit/data/atklbl.text= ""
-	else:
-		#$DataDisplay/tunit/data/ownerLb.text= str("Owner: " ,hoverUnit.playerID)
-		$DataDisplay/tunit/data/namelbl.text= str("Name: " ,hoverUnit.get_unitName())
-		$DataDisplay/tunit/data/movelbl.text= str("Moves",hoverUnit.get_move_range())
-		$DataDisplay/tunit/data/atklbl.text= str("Atk:",hoverUnit.get_atk_range())
-	
-func resetDataDisplay():
-	$DataDisplay.hide()
+
 			
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -198,7 +183,7 @@ func hover_unit(unit):
 			$Label.text="hover:none"
 		else:
 			$Label.text=str("hover:",hoverUnit.unitName)
-		update_data_display()
+		dataDisplay.update_data_display(hoverUnit)
 	else:
 		target_unit(unit)		
 	pass
@@ -210,8 +195,7 @@ func target_unit(unit):
 	else:
 		$tunitlbl.text=str("hover:",hoverUnit.unitName)
 		print("please target:",targetUnit.get_unitName())
-	update_data_display()	
-	pass	
+	dataDisplay.update_data_display(hoverUnit)
 
 
 func check_cursor_hover_unit(gridPos):
@@ -351,5 +335,3 @@ func inactiveUnit():
 
 func get_enabled_cell():
 	return enabledCell;
-
-	pass
