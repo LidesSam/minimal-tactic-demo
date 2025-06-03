@@ -50,7 +50,7 @@ func handleInput(actowner,event):
 					onConfirm=true
 					targetIdx=0
 					if targeteableUnits.size() > 0:  
-						actowner.get_node("cursor").move_to_cell(targeteableUnits[targetIdx].gpos)
+						actowner.cursor.move_to_cell(targeteableUnits[targetIdx].gpos)
 				
 				"wait":
 					actowner.selectUnit.inactive()

@@ -16,13 +16,15 @@ static var UNIT_UNSELECTED=0
 static var UNIT_SELECTED=1 
 
 #grid related vars
-var gridHover=[]
-@onready var gridDim= Vector2(20,12)
-@onready var gridHoverNode=$gridhover
+var gridHover=[]  #temp
+@onready var gridDim= Vector2(20,12) #temp moved to map 
+
 var enabledCell =[]
 var enabledCellGridPos =[]
 
-@onready var cursor =$cursor
+@onready var map =$map
+@onready var tilemap =$map/tilemap
+@onready var cursor =$map/cursor
 
 #action menus
 @onready var unitActMenu=$Cam/unitActions
@@ -33,10 +35,11 @@ var enabledCellGridPos =[]
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	Global.world=self
+	cursor.set_grid_pos()
 	set_process_input(true)
 	cursor.gridDim= gridDim
 #	show_grid_area(Vector2(2,2),2);
-	test()
 	fsm.autoload(self)
 	
 	fsm.addStateTransition("turnstart","playerturn",$fsm/turnstart.state_ended)
@@ -50,7 +53,19 @@ func _ready():
 	fsm.startState()
 	fsm.set_debug_on($stateLbl)
 	
-	generate_overlay_grid()
+	map.generate_overlay_grid()
+	#map bypasss function
+	#temporaty set for a progresive componentization of this code.
+	#eventually this only gonna contain
+	#*definition of vars
+	#*fsm requeriments
+	#*fsm vars
+	#inputs
+	gridHover=map.gridHover  #temp
+	gridDim= map.gridDim #temp moved to map 
+	tilemap =map.tilemap
+	
+	test()
 	day_end()
 
 func foeturn():
@@ -66,22 +81,7 @@ func free_unit_selector():
 func unitIsSelected():
 	return selectedUnitMode== UNIT_SELECTED
 	
-func generate_overlay_grid():
-	gridHover=[]
-	for gx in range(gridDim.x):
-		gridHover.append([])
-		gridHover[gx]=[]
-		for gy in range(gridDim.y):
-			var gh = ColorRect.new()
-			gh.size=Vector2(16,16)
-			gh.position=Vector2(gx,gy)*16
-			gh.color="#55000055"
-			gh.hide()
-			gridHover[gx].append(gh)  
-			gridHover[gx][gy]=gh
-			gridHoverNode.add_child(gh)
-	print("gridHover")
-	print(gridHover)
+
 
 #create a few unit to test
 func test():
@@ -100,7 +100,7 @@ func test():
 			_:
 				unit.defineAs("swordman")
 		
-		$units.add_child(unit)
+		$map/units.add_child(unit)
 		units.push_back(unit)
 	
 	for i in range(3):
@@ -108,7 +108,7 @@ func test():
 		var unit = tempUnit.instantiate()
 		unit.set_in_grid_position(Vector2(5+i*2,2+5))
 		unit.add_to_group("alphablue")
-		$units.add_child(unit)
+		$map/units.add_child(unit)
 		units.push_back(unit)
 		match(i):
 			0:
@@ -171,7 +171,7 @@ func remove_dead_units():
 	pass
 	
 func get_disable_active_unit(team="blue"):
-	for unit in $units.get_children():
+	for unit in $map/units.get_children():
 		if(unit.player==team && unit.is_active()):
 			unit.inactive()
 			return true
@@ -239,9 +239,7 @@ func show_grid_area(origin:Vector2i, skip ,size,color="#55000055",):
 		for pos in lastSeach:
 			# get around tiles
 			for lcell in get_limit_cell(pos):
-				print("tilemap cellsource id:",lcell)
-				print("tilemap cellsource id:1:",$TileMap.get_cell_source_id(lcell))
-				if $TileMap.get_cell_source_id(lcell)!=-1:
+				if tilemap.get_cell_source_id(lcell)!=-1:
 					
 					var skipable=abs(lcell.x-origin.x)+abs(lcell.y-origin.y)
 			
@@ -306,7 +304,7 @@ func position_is_enabledCell(pos= Vector2(0,0)):
 
 func move_unit_to_cursor_pos():
 	if(targetUnit==null):
-		selectUnit.moveTo(cursor.get_Grid_Pos())
+		selectUnit.moveTo(cursor.get_grid_pos())
 #		-> move to after confirmation of move
 		dissable_grid()
 		$ok_sound.play()
@@ -319,7 +317,7 @@ func move_unit_to_cursor_pos():
 
 func move_shadow_to_pos():
 	if(targetUnit==null):
-		hoverUnit.move_spr_only(cursor.get_Grid_Pos())
+		hoverUnit.move_spr_only(cursor.get_grid_pos())
 #		-> move to after confirmation of move
 		#dissable_grid()
 		$ok_sound.play()

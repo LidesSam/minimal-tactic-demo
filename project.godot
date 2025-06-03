@@ -15,6 +15,10 @@ run/main_scene="res://source/Screens/MainMenu.tscn"
 config/features=PackedStringArray("4.4")
 config/icon="res://icon.png"
 
+[autoload]
+
+Global="*res://source/Global/Global.tscn"
+
 [display]
 
 window/size/viewport_width=576

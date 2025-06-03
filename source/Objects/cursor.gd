@@ -11,7 +11,7 @@ var canMove = true
 var onRestrictedMode = false  # Restriction flag
 
 func _ready():
-	set_Grid_Pos()
+	pass
 
 func _process(delta):
 	if move and canMove:
@@ -26,14 +26,14 @@ func _process(delta):
 
 func move_to_cell(target_cell: Vector2):
 	if onRestrictedMode:
-		if get_parent().position_is_enabledCell(target_cell):
+		if Global.world.position_is_enabledCell(target_cell):
 			gpos = target_cell
 	else:
 		gpos = target_cell
-	get_parent().check_cursor_hover_unit(gpos)
-	set_Grid_Pos()
+	Global.world.check_cursor_hover_unit(gpos)
+	set_grid_pos()
 
-func set_Grid_Pos():
+func set_grid_pos():
 	# Clamp grid position within bounds
 	gpos.x = clamp(gpos.x, 0, gridDim.x - 1)
 	gpos.y = clamp(gpos.y, 0, gridDim.y - 1)
@@ -46,9 +46,9 @@ func set_Grid_Pos():
 	$Timer.start()
 
 	# Update parent node display
-	get_parent().update_data_display()
+	Global.world.update_data_display()
 
-func get_Grid_Pos():
+func get_grid_pos():
 	return gpos
 
 func _on_Timer_timeout():
