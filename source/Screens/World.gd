@@ -239,7 +239,9 @@ func show_grid_area(origin:Vector2i, skip ,size,color="#55000055",):
 		for pos in lastSeach:
 			# get around tiles
 			for lcell in get_limit_cell(pos):
-				if $TileMap.get_cell_source_id(0,lcell,false)!=-1:
+				print("tilemap cellsource id:",lcell)
+				print("tilemap cellsource id:1:",$TileMap.get_cell_source_id(lcell))
+				if $TileMap.get_cell_source_id(lcell)!=-1:
 					
 					var skipable=abs(lcell.x-origin.x)+abs(lcell.y-origin.y)
 			

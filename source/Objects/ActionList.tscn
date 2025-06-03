@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://drr4i5mfyaeg"]
 
-[ext_resource type="Script" path="res://source/Objects/ActionList.gd" id="1"]
+[ext_resource type="Script" uid="uid://dguq5fc1fjyn8" path="res://source/Objects/ActionList.gd" id="1"]
 [ext_resource type="Texture2D" uid="uid://cisq34vbinleb" path="res://assets/Images/system/sword cursor.png" id="2"]
 
 [node name="ActionList" type="ColorRect"]

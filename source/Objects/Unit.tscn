@@ -1,14 +1,14 @@
 [gd_scene load_steps=21 format=3 uid="uid://bese3bsc8aver"]
 
-[ext_resource type="Script" path="res://source/Objects/Unit.gd" id="1"]
+[ext_resource type="Script" uid="uid://b2mfyvn2ocoy4" path="res://source/Objects/Unit.gd" id="1"]
 [ext_resource type="Texture2D" uid="uid://qw4hfvyboedp" path="res://assets/Images/Units/soldier.png" id="2"]
 [ext_resource type="Texture2D" uid="uid://bs0xllxl5tyjq" path="res://assets/Images/Units/spearman.png" id="3"]
 [ext_resource type="Texture2D" uid="uid://bufob2l4dvd6n" path="res://assets/Images/Units/bandit.png" id="4"]
 [ext_resource type="Texture2D" uid="uid://bfi356hbg8hc0" path="res://assets/Images/Units/archer.png" id="5"]
 [ext_resource type="Texture2D" uid="uid://dkwuul6wahagv" path="res://assets/Images/system/golden-coin.png" id="6"]
-[ext_resource type="Script" path="res://addons/fsmgear/source/Fsm.gd" id="7_55ja5"]
-[ext_resource type="Script" path="res://addons/fsmgear/source/FsmState.gd" id="8_i8ecw"]
-[ext_resource type="Script" path="res://source/unitStates/unitActiveFSS.gd" id="8_r1ia1"]
+[ext_resource type="Script" uid="uid://biaei0jsnnw4k" path="res://addons/fsmgear/source/Fsm.gd" id="7_55ja5"]
+[ext_resource type="Script" uid="uid://258vpihrdh7d" path="res://addons/fsmgear/source/FsmState.gd" id="8_i8ecw"]
+[ext_resource type="Script" uid="uid://1gnktyc8va4w" path="res://source/unitStates/unitActiveFSS.gd" id="8_r1ia1"]
 
 [sub_resource type="Shader" id="1"]
 code = "uniform bool grayscale = false;

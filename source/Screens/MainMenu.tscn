@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://qh8q5o6ri7ii"]
 
-[ext_resource type="Script" path="res://source/Screens/MainMenu.gd" id="1"]
+[ext_resource type="Script" uid="uid://chp73gmhg5cho" path="res://source/Screens/MainMenu.gd" id="1"]
 [ext_resource type="Texture2D" uid="uid://dkwuul6wahagv" path="res://assets/Images/system/golden-coin.png" id="2_fhspt"]
 
 [node name="MainMenu" type="Control"]

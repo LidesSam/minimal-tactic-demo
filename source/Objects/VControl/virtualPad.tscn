@@ -1,4 +1,4 @@
-[gd_scene format=2]
+[gd_scene format=3 uid="uid://cy1yv2chdlg68"]
 
 [node name="virtualPad" type="Control"]
 anchor_right = 1.0
