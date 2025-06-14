@@ -191,3 +191,12 @@ offset_top = 256.0
 offset_right = 219.0
 offset_bottom = 282.0
 text = "State=wait"
+
+[node name="Node2D" type="Node2D" parent="."]
+visible = false
+
+[node name="ColorRect" type="ColorRect" parent="Node2D"]
+offset_left = 8.0
+offset_top = 16.0
+offset_right = 568.0
+offset_bottom = 312.0

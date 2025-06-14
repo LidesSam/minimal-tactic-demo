@@ -26,7 +26,7 @@ func _process(delta):
 
 func move_to_cell(target_cell: Vector2):
 	if onRestrictedMode:
-		if Global.world.position_is_enabledCell(target_cell):
+		if Global.world.map.position_is_enabledCell(target_cell):
 			gpos = target_cell
 	else:
 		gpos = target_cell
