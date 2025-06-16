@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=4 uid="uid://clhpww7udejta"]
+[gd_scene load_steps=18 format=4 uid="uid://clhpww7udejta"]
 
 [ext_resource type="TileSet" path="res://assets/Map/mainTilemap.tres" id="1"]
 [ext_resource type="Script" uid="uid://xcpkifba5gij" path="res://source/Screens/World.gd" id="2"]
@@ -16,6 +16,7 @@
 [ext_resource type="Script" uid="uid://dtep43gdm3ssy" path="res://source/Screens/worldStates/foeTurnState.gd" id="7_tekxw"]
 [ext_resource type="Theme" uid="uid://deqfpx1m2278t" path="res://assets/themes/maintheme.tres" id="8"]
 [ext_resource type="Script" uid="uid://bxsdf4kacl4xc" path="res://source/system/worldDataDisplay.gd" id="11_bv3gq"]
+[ext_resource type="Script" uid="uid://cqkrj46y3c4da" path="res://source/system/infoDisplay.gd" id="17_jl6gn"]
 
 [node name="World" type="Node2D"]
 script = ExtResource("2")
@@ -192,11 +193,13 @@ offset_right = 219.0
 offset_bottom = 282.0
 text = "State=wait"
 
-[node name="Node2D" type="Node2D" parent="."]
+[node name="infoDisplay" type="Node2D" parent="."]
 visible = false
+script = ExtResource("17_jl6gn")
 
-[node name="ColorRect" type="ColorRect" parent="Node2D"]
+[node name="ColorRect" type="ColorRect" parent="infoDisplay"]
 offset_left = 8.0
 offset_top = 16.0
 offset_right = 568.0
 offset_bottom = 312.0
+color = Color(0.0214346, 0.0214346, 0.0214346, 1)

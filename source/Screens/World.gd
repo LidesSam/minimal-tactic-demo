@@ -23,6 +23,8 @@ var gridHover=[]  #temp
 #var enabledCellGridPos =[]
 
 @onready var dataDisplay=$DataDisplay
+
+@onready var infoDisplay=$infoDisplay
 @onready var map =$map
 @onready var tilemap =$map/tilemap
 @onready var cursor =$map/cursor
