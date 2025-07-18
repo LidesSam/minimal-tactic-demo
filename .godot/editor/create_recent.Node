@@ -1,11 +1,13 @@
+CanvasLayer
+TileMapLayer
+FsmTrasition
+FsmState
+Node
 ColorRect
 Node2D
-Node
-TileMapLayer
 Label
 TextureRect
 Sprite2D
 Panel
 PopupPanel
-FsmState
 Fsm

@@ -10,12 +10,18 @@ var lastOp=2
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	op=0
+	actionsEnabled=[]
+	var i =0
 	for defOp in defaultOptions:
 		var lbl = Label.new()
 		lbl.horizontal_alignment = HORIZONTAL_ALIGNMENT_RIGHT
 		lbl.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
 		lbl.text = defOp
 		$options.add_child(lbl)
+		actionsEnabled.push_back(true)
+		i+=1
+	lastOp = i-1
+	print("lastOp:",lastOp)
 	update_cursor_pos()
 	pass # Replace with function body.
 
@@ -63,7 +69,7 @@ func next_action():
 func prev_action():
 	op-=1
 	if op<0:
-		op=2
+		op=lastOp
 	if(!actionsEnabled[op]):
 		prev_action()
 	update_cursor_pos()

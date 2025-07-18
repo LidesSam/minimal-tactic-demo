@@ -9,6 +9,11 @@ var gridDim = Vector2(1, 1)
 var move = false
 var canMove = true
 var onRestrictedMode = false  # Restriction flag
+var mode =0
+
+var GAMEMODE=0
+var EDITORMODE=1
+var AUTOMODE=2
 
 func _ready():
 	pass
@@ -30,7 +35,9 @@ func move_to_cell(target_cell: Vector2):
 			gpos = target_cell
 	else:
 		gpos = target_cell
-	Global.world.check_cursor_hover_unit(gpos)
+		
+	if(mode==GAMEMODE):
+		Global.world.check_cursor_hover_unit(gpos)
 	set_grid_pos()
 
 func set_grid_pos():
@@ -44,9 +51,9 @@ func set_grid_pos():
 	# Restart movement cooldown timer
 	move = false
 	$Timer.start()
-
-	# Update parent node display
-	Global.world.dataDisplay.update_data_display(Global.world.hoverUnit)
+	if(GAMEMODE):
+		# Update parent node display
+		Global.world.dataDisplay.update_data_display(Global.world.hoverUnit)
 
 func get_grid_pos():
 	return gpos
