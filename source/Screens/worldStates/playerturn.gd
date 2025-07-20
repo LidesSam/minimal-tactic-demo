@@ -37,7 +37,10 @@ func handleInput(actowner, event):
 					"end turn":
 						endstate = true
 						actowner.turnGroup = "alphablue"
-						
+					"surrender":
+						pass
+					"exit":
+						get_tree().change_scene_to_file("res://source/Screens/MainMenu.tscn")
 			elif Input.is_action_just_pressed("ui_back"):
 				actowner.turnActMenu.hide()
 				actowner.cursor.canMove = true
