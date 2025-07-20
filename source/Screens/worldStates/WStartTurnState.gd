@@ -12,6 +12,7 @@ func enter(actowner):
 	actowner.turnGroup="alphared"
 	
 	actowner.stateLbl.text="state:start"
+	actowner.state=actowner.STATE_IDLE
 	units= actowner.units
 	for u in units:
 		if(u.is_in_group(actowner.turnGroup)):

@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=4 uid="uid://clhpww7udejta"]
+[gd_scene load_steps=20 format=4 uid="uid://clhpww7udejta"]
 
 [ext_resource type="TileSet" path="res://assets/Map/mainTilemap.tres" id="1"]
 [ext_resource type="Script" uid="uid://xcpkifba5gij" path="res://source/Screens/World.gd" id="2"]
@@ -13,8 +13,10 @@
 [ext_resource type="Script" uid="uid://dwvq6orjjvivw" path="res://source/Screens/worldStates/unitSelectedState.gd" id="6_n3ut2"]
 [ext_resource type="Script" uid="uid://258vpihrdh7d" path="res://addons/fsmgear/source/FsmState.gd" id="6_qbdv3"]
 [ext_resource type="AudioStream" uid="uid://dy62xdhd3h0oj" path="res://assets/sound/system/coin.wav" id="7"]
+[ext_resource type="Script" uid="uid://02ij2on3ppah" path="res://source/Screens/worldStates/turnMenuState.gd" id="7_l6rbv"]
 [ext_resource type="Script" uid="uid://dtep43gdm3ssy" path="res://source/Screens/worldStates/foeTurnState.gd" id="7_tekxw"]
 [ext_resource type="Theme" uid="uid://deqfpx1m2278t" path="res://assets/themes/maintheme.tres" id="8"]
+[ext_resource type="Script" uid="uid://cl7u3kr8dvwhq" path="res://source/Screens/infoGralScreen.gd" id="8_jru7s"]
 [ext_resource type="Script" uid="uid://bxsdf4kacl4xc" path="res://source/system/worldDataDisplay.gd" id="11_bv3gq"]
 [ext_resource type="Script" uid="uid://cqkrj46y3c4da" path="res://source/system/infoDisplay.gd" id="17_jl6gn"]
 
@@ -42,6 +44,12 @@ script = ExtResource("3_4wq1h")
 
 [node name="turnstart" type="Node" parent="fsm"]
 script = ExtResource("4_gobov")
+
+[node name="turnMenuState" type="Node" parent="fsm"]
+script = ExtResource("7_l6rbv")
+
+[node name="infoGralScreen" type="Node" parent="fsm"]
+script = ExtResource("8_jru7s")
 
 [node name="playerturn" type="Node" parent="fsm"]
 script = ExtResource("5_qdo4b")

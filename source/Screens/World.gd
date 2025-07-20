@@ -36,6 +36,11 @@ var gridHover=[]  #temp
 @onready var turn=0
 @onready var round=0
 
+var state=""
+
+const STATE_IDLE = ""
+const STATE_ON_TURN_MENU = "onturnmenu"
+const STATE_INFO = "info"
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -49,8 +54,15 @@ func _ready():
 	fsm.addStateTransition("turnstart","playerturn",$fsm/turnstart.state_ended)
 	
 	fsm.addStateTransition("playerturn","unitselected",unitIsSelected)
+	
+	fsm.addStateTransition("playerturn","turnMenuState",on_turn_menu)
+	fsm.addStateTransition("turnMenuState","playerturn",out_turn_menu)
+	
+	fsm.addStateTransition("turnMenuState","infoGralScreen",on_info_menu)
+	fsm.addStateTransition("infoGralScreen","turnMenuState",on_turn_menu)
+	
 	fsm.addStateTransition("unitselected","playerturn",$fsm/unitselected.state_ended)
-	fsm.addStateTransition("playerturn","foeturn",foeturn)
+	fsm.addStateTransition("turnMenuState","foeturn",foeturn)
 	fsm.addStateTransition("foeturn","turnstart",$fsm/foeturn.state_ended)
 	
 	$fsm/unitselected.exitaction=free_unit_selector;
@@ -74,7 +86,17 @@ func _ready():
 
 func foeturn():
 	return turnGroup!="alphared"
-		
+
+func on_turn_menu():
+	return state == STATE_ON_TURN_MENU
+	
+func out_turn_menu():
+	return state == STATE_IDLE
+	
+	
+func on_info_menu():
+	return state == STATE_INFO
+	
 func day_end():
 	round+=1
 	$Cam/turn.text=str("day:",round)
