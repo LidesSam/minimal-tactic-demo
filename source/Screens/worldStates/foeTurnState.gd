@@ -6,6 +6,7 @@ var times: int = 0
 
 # Called when the state is entered
 func enter(actowner: Node) -> void:
+	actowner.activate_all_units("blue")
 	endstate = false
 	times = 0
 	
@@ -27,7 +28,10 @@ func _on_timer_timeout(actowner: Node) -> void:
 		timer.start() # Restart the timer
 	else:
 		endstate = true
-
+		
+func exit(actowner):
+	actowner.day_end()
+	
 # Function to check if the state has ended
 func state_ended() -> bool:
 	return endstate

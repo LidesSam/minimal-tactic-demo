@@ -16,7 +16,7 @@ func enter(actowner):
 	units= actowner.units
 	for u in units:
 		if(u.is_in_group(actowner.turnGroup)):
-			u.startTurn()
+			u.start_turn()
 	endstate= true
 	pass
 

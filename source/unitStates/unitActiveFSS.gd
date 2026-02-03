@@ -5,7 +5,7 @@ var endstate=false
 func enter(actowner):
 	super(actowner)
 	endstate=true
-	actowner.startTurn()
+	actowner.start_turn()
 	pass # Replace with function body.
 
 

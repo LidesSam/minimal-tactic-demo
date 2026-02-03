@@ -106,8 +106,6 @@ func free_unit_selector():
 	
 func unitIsSelected():
 	return selectedUnitMode== UNIT_SELECTED
-	
-
 
 #create a few unit to test
 func test():
@@ -178,7 +176,11 @@ func remove_dead_units():
 	for u in units:
 		check_and_remove_dead_unit(u)
 	pass
-	
+
+func activate_all_units(team="blue"):
+	for unit in $map/units.get_children():
+		if(unit.player==team):
+			unit.start_turn()
 func get_disable_active_unit(team="blue"):
 	for unit in $map/units.get_children():
 		if(unit.player==team && unit.is_active()):

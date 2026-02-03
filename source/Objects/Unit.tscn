@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://bese3bsc8aver"]
+[gd_scene load_steps=24 format=3 uid="uid://bese3bsc8aver"]
 
 [ext_resource type="Script" uid="uid://b2mfyvn2ocoy4" path="res://source/Objects/Unit.gd" id="1"]
 [ext_resource type="Texture2D" uid="uid://qw4hfvyboedp" path="res://assets/Images/Units/soldier.png" id="2"]
@@ -111,6 +111,31 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="9"]
 size = Vector2(8, 8)
 
+[sub_resource type="Animation" id="Animation_jw0sb"]
+resource_name = "enable"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("spr:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.0666667, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(0.55652, 0.993696, 0, 1), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_alryf"]
+length = 0.001
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_gek50"]
+_data = {
+&"RESET": SubResource("Animation_alryf"),
+&"enable": SubResource("Animation_jw0sb")
+}
+
 [node name="Unit" type="Node2D"]
 script = ExtResource("1")
 
@@ -172,6 +197,11 @@ theme_override_font_sizes/font_size = 12
 text = "3/3"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_gek50")
+}
 
 [connection signal="area_shape_entered" from="Area2D" to="." method="_on_Area2D_area_shape_entered"]
 [connection signal="body_shape_entered" from="Area2D" to="." method="_on_Area2D_body_shape_entered"]

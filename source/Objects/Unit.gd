@@ -116,7 +116,8 @@ func inactive():
 	$ColorRect.color="#ff0000";
 	pass
 	
-func startTurn():
+func start_turn():
+	$AnimationPlayer.play("enable")
 	actEnabled =[true,true,true]
 	state="active"
 	$ColorRect.color="#ffffff";
