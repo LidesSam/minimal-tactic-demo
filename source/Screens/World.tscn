@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=4 uid="uid://clhpww7udejta"]
+[gd_scene format=4 uid="uid://clhpww7udejta"]
 
 [ext_resource type="TileSet" path="res://assets/Map/mainTilemap.tres" id="1"]
 [ext_resource type="Script" uid="uid://xcpkifba5gij" path="res://source/Screens/World.gd" id="2"]
@@ -20,69 +20,69 @@
 [ext_resource type="Script" uid="uid://bxsdf4kacl4xc" path="res://source/system/worldDataDisplay.gd" id="11_bv3gq"]
 [ext_resource type="Script" uid="uid://cqkrj46y3c4da" path="res://source/system/infoDisplay.gd" id="17_jl6gn"]
 
-[node name="World" type="Node2D"]
+[node name="World" type="Node2D" unique_id=1514924078]
 script = ExtResource("2")
 
-[node name="map" type="Node2D" parent="."]
+[node name="map" type="Node2D" parent="." unique_id=1226748304]
 script = ExtResource("2_x8xym")
 
-[node name="tilemap" type="TileMapLayer" parent="map"]
+[node name="tilemap" type="TileMapLayer" parent="map" unique_id=916263397]
 position = Vector2(0, -1)
 tile_map_data = PackedByteArray("AAACAAYAAAACAAMAAAABAAYAAAACAAMAAAAAAAYAAAACAAMAAAAEAAYAAAACAAMAAAAFAAYAAAACAAMAAAAGAAYAAAACAAMAAAAHAAYAAAACAAMAAAAIAAYAAAACAAMAAAAIAAcAAAACAAMAAAAIAAgAAAACAAMAAAAIAAoAAAACAAMAAAAIAAsAAAACAAMAAAAIAAwAAAACAAMAAAAIAA0AAAACAAMAAAAHAA0AAAABAAMAAAAHAAwAAAABAAMAAAAHAAsAAAACAAIAAAAHAAoAAAAAAAMAAAAHAAkAAAACAAIAAAAHAAgAAAADAAIAAAAHAAcAAAADAAIAAAAGAAcAAAADAAMAAAAFAAcAAAADAAMAAAAEAAcAAAACAAIAAAADAAcAAAABAAIAAAACAAcAAAADAAMAAAABAAcAAAADAAMAAAAAAAcAAAADAAMAAAAAAAgAAAACAAIAAAAAAAkAAAACAAIAAAAAAAoAAAABAAAAAAAAAAsAAAADAAIAAAAAAAwAAAACAAIAAAAAAA0AAAACAAIAAAABAA0AAAACAAIAAAACAA0AAAAAAAMAAAADAA0AAAACAAIAAAAEAA0AAAACAAIAAAAFAA0AAAACAAIAAAAGAA0AAAABAAMAAAAGAAwAAAACAAIAAAAGAAsAAAACAAIAAAAGAAoAAAACAAIAAAAGAAkAAAADAAIAAAAGAAgAAAADAAIAAAAFAAgAAAACAAIAAAAEAAgAAAACAAIAAAADAAgAAAACAAIAAAACAAgAAAACAAIAAAABAAgAAAADAAMAAAABAAkAAAACAAIAAAABAAoAAAADAAIAAAACAAoAAAACAAIAAAADAAoAAAACAAIAAAAEAAoAAAACAAIAAAAEAAsAAAADAAMAAAADAAsAAAACAAIAAAACAAsAAAACAAIAAAAFAAsAAAADAAMAAAAFAAoAAAACAAIAAAABAAsAAAADAAIAAAABAAwAAAABAAAAAAACAAwAAAACAAIAAAADAAwAAAACAAIAAAAEAAwAAAACAAIAAAAFAAwAAAACAAIAAAAFAAkAAAACAAIAAAAEAAkAAAACAAIAAAADAAkAAAABAAIAAAACAAkAAAACAAIAAAAIAAkAAAACAAEAAAADAAYAAAADAAEAAAADAAUAAAABAAEAAAAJAAkAAAAAAAAAAAAJAAUAAAABAAMAAAAJAAQAAAABAAMAAAAJAAMAAAABAAMAAAAJAAIAAAABAAMAAAAIAAQAAAABAAMAAAAIAAUAAAABAAMAAAAKAAQAAAABAAMAAAAKAAMAAAABAAMAAAAKAAIAAAABAAMAAAALAAIAAAABAAMAAAAMAAIAAAABAAMAAAAMAAEAAAABAAMAAAANAAEAAAABAAMAAAANAAAAAAABAAMAAAAOAAAAAAABAAMAAAAMAAAAAAABAAMAAAALAAAAAAABAAMAAAALAAEAAAABAAMAAAAKAAEAAAABAAMAAAAFAAEAAAADAAIAAAAFAAIAAAADAAIAAAAEAAIAAAADAAIAAAAGAAEAAAADAAIAAAAHAAEAAAADAAIAAAAHAAAAAAADAAIAAAAGAAAAAAADAAIAAAAIAAAAAAADAAIAAAAHAAMAAAADAAIAAAAIAAMAAAADAAIAAAAIAAIAAAADAAIAAAAIAAEAAAADAAIAAAAJAAEAAAADAAIAAAAJAAAAAAADAAIAAAAKAAAAAAADAAIAAAAOAA0AAAADAAIAAAAOAAwAAAADAAMAAAAPAAwAAAADAAIAAAAQAAwAAAADAAIAAAAQAAsAAAADAAIAAAARAAsAAAADAAIAAAARAAwAAAABAAMAAAASAAsAAAABAAMAAAASAAwAAAABAAMAAAAQAA0AAAABAAMAAAAPAA0AAAADAAIAAAARAA0AAAABAAMAAAASAA0AAAABAAMAAAAMAAwAAAADAAMAAAANAAwAAAADAAMAAAANAA0AAAADAAMAAAAMAA0AAAADAAMAAAALAA0AAAADAAMAAAAKAA0AAAADAAMAAAALAAwAAAADAAMAAAAKAAwAAAACAAIAAAAJAAwAAAACAAIAAAAJAA0AAAADAAMAAAALAAsAAAACAAIAAAAMAAsAAAABAAAAAAANAAsAAAADAAMAAAAKAAsAAAADAAMAAAANAAoAAAADAAMAAAAOAAoAAAADAAMAAAAPAAoAAAADAAMAAAAQAAoAAAADAAMAAAARAAkAAAADAAMAAAAPAAsAAAADAAMAAAAOAAsAAAADAAMAAAAOAAkAAAACAAIAAAAPAAkAAAACAAIAAAAQAAkAAAADAAIAAAARAAoAAAACAAIAAAASAAkAAAACAAIAAAARAAgAAAADAAIAAAASAAgAAAACAAIAAAAQAAgAAAADAAIAAAAPAAgAAAADAAMAAAASAAAAAAADAAMAAAARAAAAAAADAAMAAAARAAEAAAADAAMAAAASAAEAAAADAAMAAAAQAAAAAAADAAMAAAASAAIAAAADAAMAAAAFAAMAAAABAAIAAAAFAAQAAAAAAAMAAAAJAAsAAAACAAIAAAAJAAoAAAACAAIAAAAKAAoAAAACAAIAAAALAAoAAAADAAIAAAALAAkAAAACAAIAAAAKAAkAAAACAAIAAAAJAAgAAAAAAAIAAAAJAAcAAAACAAIAAAAKAAcAAAACAAIAAAAKAAYAAAACAAIAAAALAAYAAAAAAAIAAAALAAcAAAACAAIAAAALAAgAAAACAAIAAAAKAAgAAAAAAAIAAAAMAAcAAAABAAEAAAANAAYAAAACAAIAAAANAAUAAAACAAIAAAAOAAQAAAACAAIAAAANAAQAAAACAAIAAAAMAAYAAAAAAAIAAAAOAAcAAAABAAEAAAAMAAoAAAADAAIAAAAMAAkAAAADAAIAAAANAAkAAAADAAIAAAANAAgAAAADAAIAAAAMAAgAAAACAAIAAAAOAAgAAAADAAIAAAANAAcAAAACAAIAAAAQAAcAAAACAAIAAAARAAcAAAADAAIAAAASAAcAAAADAAIAAAASAAYAAAADAAIAAAASAAUAAAACAAIAAAASAAQAAAACAAIAAAARAAQAAAACAAIAAAARAAMAAAACAAIAAAARAAUAAAACAAIAAAAQAAUAAAACAAIAAAAQAAYAAAACAAIAAAAPAAcAAAACAAIAAAAPAAYAAAACAAIAAAARAAYAAAACAAIAAAAOAAYAAAACAAIAAAAJAAYAAAACAAIAAAAKAAUAAAACAAIAAAALAAUAAAACAAIAAAAMAAUAAAACAAIAAAAMAAQAAAACAAIAAAAMAAMAAAACAAIAAAALAAMAAAACAAIAAAALAAQAAAACAAIAAAANAAMAAAACAAIAAAAOAAMAAAACAAIAAAAOAAIAAAACAAIAAAAPAAIAAAACAAIAAAANAAIAAAACAAIAAAAPAAEAAAACAAIAAAAPAAAAAAACAAIAAAAOAAEAAAACAAIAAAAQAAEAAAACAAIAAAAQAAIAAAACAAIAAAARAAIAAAACAAIAAAAQAAMAAAACAAIAAAAQAAQAAAACAAIAAAAPAAUAAAACAAIAAAAOAAUAAAACAAIAAAAPAAQAAAACAAIAAAAPAAMAAAACAAIAAAASAAoAAAACAAIAAAASAAMAAAABAAMAAAACAAAAAAABAAMAAAADAAAAAAABAAMAAAAEAAAAAAABAAMAAAADAAEAAAABAAMAAAABAAAAAAACAAIAAAAEAAUAAAAAAAEAAAACAAUAAAAAAAIAAAAHAAUAAAAAAAEAAAAFAAUAAAABAAIAAAAGAAUAAAABAAIAAAAHAAQAAAACAAIAAAAGAAQAAAACAAIAAAAGAAMAAAACAAIAAAAGAAIAAAACAAIAAAAHAAIAAAACAAIAAAADAAQAAAACAAIAAAACAAQAAAACAAIAAAABAAQAAAACAAIAAAABAAUAAAACAAIAAAAAAAUAAAACAAIAAAADAAMAAAACAAIAAAAEAAMAAAACAAIAAAACAAMAAAACAAIAAAABAAMAAAACAAIAAAAAAAQAAAACAAIAAAACAAIAAAACAAIAAAADAAIAAAACAAIAAAACAAEAAAACAAIAAAABAAEAAAACAAIAAAABAAIAAAACAAIAAAAAAAMAAAACAAIAAAAAAAIAAAACAAIAAAAAAAEAAAACAAIAAAAAAAAAAAACAAIAAAAEAAEAAAACAAIAAAAFAAAAAAACAAIAAAAEAAQAAAACAAIAAAA=")
 tile_set = ExtResource("1")
 rendering_quadrant_size = 8
 
-[node name="gridhover" type="Node2D" parent="map"]
+[node name="gridhover" type="Node2D" parent="map" unique_id=1567762243]
 
-[node name="units" type="Node2D" parent="map"]
+[node name="units" type="Node2D" parent="map" unique_id=2059404802]
 position = Vector2(0, -1)
 
-[node name="cursor" parent="map" instance=ExtResource("4")]
+[node name="cursor" parent="map" unique_id=1647017799 instance=ExtResource("4")]
 
-[node name="fsm" type="Node" parent="."]
+[node name="fsm" type="Node" parent="." unique_id=439313089]
 script = ExtResource("3_4wq1h")
 
-[node name="turnstart" type="Node" parent="fsm"]
+[node name="turnstart" type="Node" parent="fsm" unique_id=1334568660]
 script = ExtResource("4_gobov")
 
-[node name="turnMenuState" type="Node" parent="fsm"]
+[node name="turnMenuState" type="Node" parent="fsm" unique_id=2089712442]
 script = ExtResource("7_l6rbv")
 
-[node name="infoGralScreen" type="Node" parent="fsm"]
+[node name="infoGralScreen" type="Node" parent="fsm" unique_id=1271307649]
 script = ExtResource("8_jru7s")
 
-[node name="playerturn" type="Node" parent="fsm"]
+[node name="playerturn" type="Node" parent="fsm" unique_id=4441025]
 script = ExtResource("5_qdo4b")
 
-[node name="unitselected" type="Node" parent="fsm"]
+[node name="unitselected" type="Node" parent="fsm" unique_id=544157441]
 script = ExtResource("6_n3ut2")
 
-[node name="foeturn" type="Node" parent="fsm"]
+[node name="foeturn" type="Node" parent="fsm" unique_id=738779926]
 script = ExtResource("7_tekxw")
 
-[node name="endbattle" type="Node" parent="fsm"]
+[node name="endbattle" type="Node" parent="fsm" unique_id=773008156]
 script = ExtResource("6_qbdv3")
 
-[node name="DataDisplay" type="VBoxContainer" parent="."]
+[node name="DataDisplay" type="VBoxContainer" parent="." unique_id=1123047279]
 offset_left = 384.0
 offset_top = 8.0
 offset_right = 568.0
 offset_bottom = 296.0
 script = ExtResource("11_bv3gq")
 
-[node name="tunit" type="Panel" parent="DataDisplay"]
+[node name="tunit" type="Panel" parent="DataDisplay" unique_id=499363225]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 3.0
 theme = ExtResource("8")
 
-[node name="Sprite2D" type="Sprite2D" parent="DataDisplay/tunit"]
+[node name="Sprite2D" type="Sprite2D" parent="DataDisplay/tunit" unique_id=73422841]
 texture_filter = 1
 position = Vector2(16, 40)
 texture = ExtResource("3")
 
-[node name="data" type="VBoxContainer" parent="DataDisplay/tunit"]
+[node name="data" type="VBoxContainer" parent="DataDisplay/tunit" unique_id=860192324]
 layout_mode = 0
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -93,47 +93,47 @@ offset_bottom = -4.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="ReferenceRect" type="ReferenceRect" parent="DataDisplay/tunit/data"]
+[node name="ReferenceRect" type="ReferenceRect" parent="DataDisplay/tunit/data" unique_id=1740971646]
 custom_minimum_size = Vector2(0, 96)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 7
 
-[node name="ownerLbl" type="Label" parent="DataDisplay/tunit/data"]
+[node name="ownerLbl" type="Label" parent="DataDisplay/tunit/data" unique_id=1543578789]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 6
 text = "Owner"
 uppercase = true
 
-[node name="namelbl" type="Label" parent="DataDisplay/tunit/data"]
+[node name="namelbl" type="Label" parent="DataDisplay/tunit/data" unique_id=715525520]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 6
 text = "Name"
 uppercase = true
 
-[node name="movelbl" type="Label" parent="DataDisplay/tunit/data"]
+[node name="movelbl" type="Label" parent="DataDisplay/tunit/data" unique_id=179877455]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 6
 text = "Move"
 uppercase = true
 
-[node name="atklbl" type="Label" parent="DataDisplay/tunit/data"]
+[node name="atklbl" type="Label" parent="DataDisplay/tunit/data" unique_id=880309195]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 6
 text = "atk:"
 uppercase = true
 
-[node name="terrain" type="Panel" parent="DataDisplay"]
+[node name="terrain" type="Panel" parent="DataDisplay" unique_id=1709532557]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme = ExtResource("8")
 
-[node name="TerrainLbl" type="Label" parent="DataDisplay/terrain"]
+[node name="TerrainLbl" type="Label" parent="DataDisplay/terrain" unique_id=1573499428]
 layout_mode = 0
 offset_top = 4.0
 offset_right = 192.0
@@ -141,27 +141,27 @@ offset_bottom = 35.0
 text = "Terrain:
 "
 
-[node name="DefLbl" type="Label" parent="DataDisplay/terrain"]
+[node name="DefLbl" type="Label" parent="DataDisplay/terrain" unique_id=1725127607]
 layout_mode = 0
 offset_top = 39.0
 offset_right = 192.0
 offset_bottom = 53.0
 text = "Def:"
 
-[node name="Cam" type="Camera2D" parent="."]
+[node name="Cam" type="Camera2D" parent="." unique_id=821562350]
 anchor_mode = 0
 limit_left = -64
 drag_horizontal_offset = 1.0
 drag_vertical_offset = 1.0
 
-[node name="unitActions" parent="Cam" instance=ExtResource("5")]
+[node name="unitActions" parent="Cam" unique_id=1596883983 instance=ExtResource("5")]
 visible = false
 offset_left = 227.0
 offset_top = 72.0
 offset_right = 355.0
 offset_bottom = 200.0
 
-[node name="turnActions" parent="Cam" instance=ExtResource("5")]
+[node name="turnActions" parent="Cam" unique_id=1165048185 instance=ExtResource("5")]
 visible = false
 offset_left = 368.0
 offset_top = 16.0
@@ -169,43 +169,43 @@ offset_right = 560.0
 offset_bottom = 312.0
 defaultOptions = ["info", "save", "end turn", "surrender", "exit"]
 
-[node name="turn" type="Label" parent="Cam"]
+[node name="turn" type="Label" parent="Cam" unique_id=1427595841]
 offset_right = 40.0
 offset_bottom = 23.0
 text = "Turn_1"
 
-[node name="Label" type="Label" parent="."]
+[node name="Label" type="Label" parent="." unique_id=1238022487]
 offset_left = 8.0
 offset_top = 200.0
 offset_right = 72.0
 offset_bottom = 223.0
 pivot_offset = Vector2(72, 15)
 
-[node name="tunitlbl" type="Label" parent="."]
+[node name="tunitlbl" type="Label" parent="." unique_id=1876177069]
 offset_left = 128.0
 offset_top = 216.0
 offset_right = 192.0
 offset_bottom = 239.0
 pivot_offset = Vector2(72, 15)
 
-[node name="back_sound" type="AudioStreamPlayer" parent="."]
+[node name="back_sound" type="AudioStreamPlayer" parent="." unique_id=1130556794]
 stream = ExtResource("6")
 
-[node name="ok_sound" type="AudioStreamPlayer" parent="."]
+[node name="ok_sound" type="AudioStreamPlayer" parent="." unique_id=1997800591]
 stream = ExtResource("7")
 
-[node name="stateLbl" type="Label" parent="."]
+[node name="stateLbl" type="Label" parent="." unique_id=1714520892]
 offset_left = 136.0
 offset_top = 256.0
 offset_right = 219.0
 offset_bottom = 282.0
 text = "State=wait"
 
-[node name="infoDisplay" type="Node2D" parent="."]
+[node name="infoDisplay" type="Node2D" parent="." unique_id=1941480099]
 visible = false
 script = ExtResource("17_jl6gn")
 
-[node name="ColorRect" type="ColorRect" parent="infoDisplay"]
+[node name="ColorRect" type="ColorRect" parent="infoDisplay" unique_id=1916086517]
 offset_left = 8.0
 offset_top = 16.0
 offset_right = 568.0

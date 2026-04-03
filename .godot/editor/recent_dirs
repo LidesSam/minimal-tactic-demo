@@ -1,7 +1,7 @@
-res://source/Screens/worldStates
-res://source/Screens/editorStates
-res://source/system
-res://source/Global
-res://source/world
-res://assets/Images/Units
-res://source/unitStates
+res://source/Screens/editorStates/
+res://source/Screens/worldStates/
+res://source/system/
+res://source/Global/
+res://source/world/
+res://assets/Images/Units/
+res://source/unitStates/

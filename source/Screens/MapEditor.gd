@@ -5,6 +5,8 @@ extends Control
 @onready var cursor= $cursor
 @onready var fsm= $fsm
 
+var nextStage=null
+
 func _ready():
 	new_map()
 	Global.world=self
@@ -12,6 +14,7 @@ func _ready():
 	fsm.startState()
 	cursor.mode=cursor.EDITORMODE
 	cursor.move=false
+
 
 func exit_editor():
 	get_tree().change_scene_to_file("res://source/Screens/MainMenu.tscn")
