@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://fngbjfagt6r8"]
+[gd_scene format=4 uid="uid://fngbjfagt6r8"]
 
 [ext_resource type="Script" uid="uid://btm3y6c7g2rwc" path="res://source/Screens/MapEditor.gd" id="1"]
 [ext_resource type="TileSet" path="res://assets/Map/mainTilemap.tres" id="2_yaqiu"]
@@ -7,6 +7,7 @@
 [ext_resource type="Script" uid="uid://biaei0jsnnw4k" path="res://addons/fsmgear/source/Fsm.gd" id="5_s6upy"]
 [ext_resource type="Script" uid="uid://b82q53iow4et3" path="res://source/Screens/editorStates/editorMainMenuState.gd" id="6_n8nml"]
 [ext_resource type="Script" uid="uid://fphdk6oqkrnk" path="res://source/Screens/editorStates/placingSelectionMenuState.gd" id="6_wfxgv"]
+[ext_resource type="Script" uid="uid://ct6ruj2e13tog" path="res://source/Screens/editorStates/fillSelectionState.gd" id="7_5fpgf"]
 [ext_resource type="Script" uid="uid://daahb7ok0gpsh" path="res://source/Screens/editorStates/placingUnitsState.gd" id="7_l1de3"]
 [ext_resource type="Script" uid="uid://bxi5wwg0lutwj" path="res://source/Screens/editorStates/placingTilesState.gd" id="8_5fpgf"]
 
@@ -22,6 +23,7 @@ script = ExtResource("1")
 [node name="world" type="Node2D" parent="." unique_id=1422148262]
 
 [node name="TileMap" type="TileMapLayer" parent="world" unique_id=1607273370]
+tile_map_data = PackedByteArray("AAAAAAAAAAACAAMAAAABAAAAAAACAAMAAAACAAAAAAACAAMAAAADAAAAAAACAAMAAAAEAAAAAAACAAMAAAAFAAAAAAACAAMAAAAFAAEAAAACAAMAAAAGAAEAAAACAAMAAAAGAAIAAAACAAMAAAAGAAMAAAACAAMAAAAGAAQAAAACAAMAAAAFAAQAAAACAAMAAAAFAAUAAAACAAMAAAAEAAUAAAACAAMAAAADAAUAAAACAAMAAAACAAUAAAACAAMAAAABAAMAAAACAAMAAAACAAMAAAACAAMAAAACAAIAAAACAAMAAAADAAIAAAACAAMAAAADAAEAAAACAAMAAAACAAEAAAACAAMAAAABAAIAAAACAAMAAAADAAMAAAACAAMAAAAEAAMAAAACAAMAAAAFAAMAAAACAAMAAAAFAAIAAAACAAMAAAAEAAEAAAACAAMAAAABAAEAAAACAAMAAAAAAAEAAAACAAMAAAAEAAIAAAACAAMAAAADAAQAAAACAAMAAAACAAQAAAACAAMAAAABAAQAAAACAAMAAAAAAAQAAAACAAMAAAAAAAMAAAACAAMAAAAAAAIAAAACAAMAAAD//wIAAAACAAMAAAAEAAQAAAACAAMAAAD//wAAAAACAAMAAAAGAAAAAAACAAMAAAAGAAUAAAACAAMAAAAGAAYAAAACAAMAAAAFAAYAAAACAAMAAAAEAAYAAAACAAMAAAADAAYAAAACAAMAAAACAAYAAAACAAMAAAABAAYAAAACAAMAAAAAAAYAAAACAAMAAAD//wYAAAACAAMAAAD//wUAAAACAAMAAAD//wQAAAACAAMAAAD//wMAAAACAAMAAAD//wEAAAACAAMAAAAAAAUAAAACAAMAAAABAAUAAAACAAMAAAA=")
 tile_set = ExtResource("2_yaqiu")
 
 [node name="cursor" parent="." unique_id=1135272606 instance=ExtResource("3_d44t2")]
@@ -33,8 +35,12 @@ script = ExtResource("5_s6upy")
 script = ExtResource("6_n8nml")
 metadata/_custom_type_script = "uid://258vpihrdh7d"
 
-[node name="placingSelectionMenu" type="Node" parent="fsm" unique_id=1391740102]
+[node name="placingSelection" type="Node" parent="fsm" unique_id=1391740102]
 script = ExtResource("6_wfxgv")
+metadata/_custom_type_script = "uid://258vpihrdh7d"
+
+[node name="fillerSelection" type="Node" parent="fsm" unique_id=331628968]
+script = ExtResource("7_5fpgf")
 metadata/_custom_type_script = "uid://258vpihrdh7d"
 
 [node name="placingTiles" type="Node" parent="fsm" unique_id=780161298]
@@ -47,20 +53,23 @@ metadata/_custom_type_script = "uid://258vpihrdh7d"
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=189649199]
 
-[node name="RoomOptions" parent="CanvasLayer" unique_id=1107401778 instance=ExtResource("4_dyuv4")]
+[node name="options" type="Node" parent="CanvasLayer" unique_id=1827674827]
+
+[node name="Main" parent="CanvasLayer/options" unique_id=1107401778 instance=ExtResource("4_dyuv4")]
+visible = false
 offset_left = 448.0
 offset_right = 576.0
 offset_bottom = 256.0
 defaultOptions = ["edit", "fill", "save", "exit"]
 
-[node name="PlacingOptions" parent="CanvasLayer" unique_id=1229886515 instance=ExtResource("4_dyuv4")]
+[node name="Placing" parent="CanvasLayer/options" unique_id=1229886515 instance=ExtResource("4_dyuv4")]
 visible = false
 offset_left = 896.0
 offset_right = 1024.0
 offset_bottom = 256.0
 defaultOptions = ["units", "terrain", "exit"]
 
-[node name="FillOptions" parent="CanvasLayer" unique_id=790292791 instance=ExtResource("4_dyuv4")]
+[node name="Fill" parent="CanvasLayer/options" unique_id=790292791 instance=ExtResource("4_dyuv4")]
 visible = false
 offset_left = 448.0
 offset_right = 576.0

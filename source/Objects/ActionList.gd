@@ -65,7 +65,6 @@ func next_action():
 		next_action()
 	update_cursor_pos()
 	
-
 func prev_action():
 	op-=1
 	if op<0:

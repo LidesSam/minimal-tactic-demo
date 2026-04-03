@@ -1,9 +1,9 @@
+Node
 AnimationPlayer
 CanvasLayer
 TileMapLayer
 FsmTrasition
 FsmState
-Node
 ColorRect
 Node2D
 Label
