@@ -3,7 +3,7 @@ extends Node2D
 var playerID=0
 
 @export var unitName = "name"
-@onready var sprite=$spr
+@onready var spr=$spr
 
 var gpos=Vector2(0,0)
 
@@ -58,7 +58,7 @@ func defineAs(NAME="soldier",_PLAYER="red"):
 	print("pla:",_PLAYER)
 	unitName=NAME
 	var anim= str("soldier-idle-",_PLAYER)
-	sprite=$spr
+	spr=$spr
 	lp=maxlp
 	match unitName:
 		"soldier":
@@ -79,7 +79,7 @@ func defineAs(NAME="soldier",_PLAYER="red"):
 			defineAs("soldier",_PLAYER)
 			pass	
 	lp=maxlp
-	sprite.play(anim)
+	spr.play(anim)
 	update_lp()
 
 func is_foe():
@@ -157,7 +157,7 @@ func is_active():
 	return state== ACTIVE
 
 func get_spr_texture():
-	return $AnimatedSprite2D.frame
+	return $Animatedspr2D.frame
 
 func get_unitName():
 	return unitName

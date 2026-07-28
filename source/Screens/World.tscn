@@ -19,6 +19,8 @@
 [ext_resource type="Script" uid="uid://cl7u3kr8dvwhq" path="res://source/Screens/infoGralScreen.gd" id="8_jru7s"]
 [ext_resource type="Script" uid="uid://bxsdf4kacl4xc" path="res://source/system/worldDataDisplay.gd" id="11_bv3gq"]
 [ext_resource type="Script" uid="uid://cqkrj46y3c4da" path="res://source/system/infoDisplay.gd" id="17_jl6gn"]
+[ext_resource type="Texture2D" uid="uid://0cvj5hr7di1n" path="res://assets/Images/system/cursor.png" id="20_6wlj0"]
+[ext_resource type="PackedScene" uid="uid://b4utspyn7qtt5" path="res://source/Objects/system/unitInfoDetail.tscn" id="21_rylgv"]
 
 [node name="World" type="Node2D" unique_id=1514924078]
 script = ExtResource("2")
@@ -201,13 +203,59 @@ offset_right = 219.0
 offset_bottom = 282.0
 text = "State=wait"
 
-[node name="infoDisplay" type="Node2D" parent="." unique_id=1941480099]
+[node name="infoDisplay" type="Control" parent="." unique_id=885701859]
 visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_left = 16.0
+offset_top = 16.0
+offset_right = 16.0
+offset_bottom = 16.0
 script = ExtResource("17_jl6gn")
 
 [node name="ColorRect" type="ColorRect" parent="infoDisplay" unique_id=1916086517]
-offset_left = 8.0
-offset_top = 16.0
-offset_right = 568.0
+layout_mode = 0
+offset_left = -16.0
+offset_top = -16.0
+offset_right = 560.0
 offset_bottom = 312.0
 color = Color(0.0214346, 0.0214346, 0.0214346, 1)
+
+[node name="CurrentTeamLbl" type="Label" parent="infoDisplay" unique_id=1128643072]
+layout_mode = 0
+offset_left = 48.0
+offset_top = 24.0
+offset_right = 336.0
+offset_bottom = 47.0
+
+[node name="Sprite2D" type="Sprite2D" parent="infoDisplay" unique_id=1505158880]
+position = Vector2(24, 72)
+texture = ExtResource("20_6wlj0")
+centered = false
+region_enabled = true
+region_rect = Rect2(0, 0, 16, 16)
+
+[node name="units" type="VBoxContainer" parent="infoDisplay" unique_id=2061738067]
+layout_mode = 0
+offset_left = 64.0
+offset_top = 64.0
+offset_right = 384.0
+offset_bottom = 256.0
+
+[node name="HBoxContainer" parent="infoDisplay/units" unique_id=218968555 instance=ExtResource("21_rylgv")]
+layout_mode = 2
+
+[node name="HBoxContainer2" parent="infoDisplay/units" unique_id=786515380 instance=ExtResource("21_rylgv")]
+layout_mode = 2
+
+[node name="HBoxContainer3" parent="infoDisplay/units" unique_id=152915439 instance=ExtResource("21_rylgv")]
+layout_mode = 2
+
+[node name="HBoxContainer4" parent="infoDisplay/units" unique_id=156768449 instance=ExtResource("21_rylgv")]
+layout_mode = 2
+
+[node name="HBoxContainer5" parent="infoDisplay/units" unique_id=304181127 instance=ExtResource("21_rylgv")]
+layout_mode = 2
+
+[node name="HBoxContainer6" parent="infoDisplay/units" unique_id=1579717246 instance=ExtResource("21_rylgv")]
+layout_mode = 2

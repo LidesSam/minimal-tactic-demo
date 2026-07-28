@@ -1,0 +1,133 @@
+[gd_scene format=3 uid="uid://b4utspyn7qtt5"]
+
+[ext_resource type="Texture2D" uid="uid://bfi356hbg8hc0" path="res://assets/Images/Units/archer.png" id="1_7ps25"]
+[ext_resource type="Script" uid="uid://csdoynxkd7byw" path="res://source/Objects/system/unitInfoDetail.gd" id="1_gyipf"]
+[ext_resource type="Texture2D" uid="uid://bufob2l4dvd6n" path="res://assets/Images/Units/bandit.png" id="2_gyipf"]
+[ext_resource type="Texture2D" uid="uid://qw4hfvyboedp" path="res://assets/Images/Units/soldier.png" id="3_4kq0k"]
+[ext_resource type="Texture2D" uid="uid://bs0xllxl5tyjq" path="res://assets/Images/Units/spearman.png" id="4_1q2gj"]
+
+[sub_resource type="Shader" id="1"]
+code = "uniform bool grayscale = false;
+
+if (grayscale) {
+    COLOR.rgb = vec3(dot(COLOR.rgb, vec3(0.299, 0.587, 0.114)));
+}"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ablou"]
+render_priority = 0
+shader = SubResource("1")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jrl3r"]
+atlas = ExtResource("1_7ps25")
+region = Rect2(0, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="7"]
+atlas = ExtResource("1_7ps25")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="4"]
+atlas = ExtResource("2_gyipf")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="5"]
+atlas = ExtResource("3_4kq0k")
+region = Rect2(0, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="3"]
+atlas = ExtResource("3_4kq0k")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lgjun"]
+atlas = ExtResource("4_1q2gj")
+region = Rect2(0, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="6"]
+atlas = ExtResource("4_1q2gj")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6l4ij"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jrl3r")
+}],
+"loop": true,
+"name": &"archer-idle-blue",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("7")
+}],
+"loop": true,
+"name": &"archer-idle-red",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("4")
+}],
+"loop": true,
+"name": &"bandid-idle-red",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"emprty",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("5")
+}],
+"loop": true,
+"name": &"soldier-idle-blue",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("3")
+}],
+"loop": true,
+"name": &"soldier-idle-red",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lgjun")
+}],
+"loop": true,
+"name": &"spearman-idle-blue",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("6")
+}],
+"loop": true,
+"name": &"spearman-idle-red",
+"speed": 5.0
+}]
+
+[node name="HBoxContainer" type="HBoxContainer" unique_id=218968555]
+script = ExtResource("1_gyipf")
+
+[node name="ReferenceRect" type="ReferenceRect" parent="." unique_id=1506880702]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+
+[node name="spr" type="AnimatedSprite2D" parent="ReferenceRect" unique_id=2095511652]
+texture_filter = 1
+material = SubResource("ShaderMaterial_ablou")
+position = Vector2(8, 8)
+sprite_frames = SubResource("SpriteFrames_6l4ij")
+animation = &"emprty"
+centered = false
+
+[node name="unitname" type="Label" parent="." unique_id=1580075341]
+layout_mode = 2
+text = "name"
+
+[node name="lp" type="Label" parent="." unique_id=1227214339]
+layout_mode = 2
+text = "lp"
