@@ -1,7 +1,5 @@
 extends Node2D
 
-var playerID=0
-
 @export var unitName = "name"
 @onready var spr=$spr
 
@@ -19,13 +17,14 @@ var def=1
 var maxlp=10
 var lp=10
 var moves=3
-var player="red"
+var player:int=Global.ALPHARED
 
 static var ACTIVE = "active"
 var state="active"
 
 var currentAction="none"
 var fsm
+
 # Called when the node enters the scene tree for the first time.
 func _ready():	
 	fsm= $fsm
@@ -53,7 +52,7 @@ func atk_used():
 func can_atack():
 	return actEnabled[1]
 			
-func defineAs(NAME="soldier",_PLAYER="red"):
+func defineAs(NAME="soldier",_PLAYER:int=Global.ALPHARED):
 	player=_PLAYER
 	print("pla:",_PLAYER)
 	unitName=NAME
@@ -63,18 +62,18 @@ func defineAs(NAME="soldier",_PLAYER="red"):
 	match unitName:
 		"soldier":
 			maxlp=3
-			anim= str("soldier-idle-",_PLAYER)
+			anim= str("soldier-idle_",_PLAYER)
 		"spearman":
 			maxlp=4
-			anim= str("spearman-idle-",_PLAYER)
+			anim= str("spearman-idle_",_PLAYER)
 		"archer":
 			maxlp=2
 			minAtkArea=2
 			maxAtkArea=3
-			anim= str("archer-idle-",_PLAYER)
+			anim= str("archer-idle_",_PLAYER)
 		"bandit":
 			maxlp=2
-			anim= str("bandit-idle-",_PLAYER)
+			anim= str("bandit-idle_",_PLAYER)
 		_:
 			defineAs("soldier",_PLAYER)
 			pass	
@@ -82,8 +81,6 @@ func defineAs(NAME="soldier",_PLAYER="red"):
 	spr.play(anim)
 	update_lp()
 
-func is_foe():
-	return player=="blue"	
 
 func _process(delta):
 	pass
@@ -152,6 +149,13 @@ func in_act_range(rangepos: Array) -> bool:
 
 func out_target():
 	$pmark.hide()
+
+func is_foe():
+	return player==Global.BETABLUE	
+
+func is_of_player(group:int):
+	return player==group	
+
 
 func is_active():
 	return state== ACTIVE

@@ -11,7 +11,6 @@ func update_data_display(hoverUnit):
 		$tunit/data/movelbl.text= ""
 		$tunit/data/atklbl.text= ""
 	else:
-		#$tunit/data/ownerLb.text= str("Owner: " ,hoverUnit.playerID)
 		$tunit/data/namelbl.text= str("Name: " ,hoverUnit.get_unitName())
 		$tunit/data/movelbl.text= str("Moves",hoverUnit.get_move_range())
 		$tunit/data/atklbl.text= str("Atk:",hoverUnit.get_atk_range())

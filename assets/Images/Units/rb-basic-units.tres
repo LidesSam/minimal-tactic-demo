@@ -1,0 +1,110 @@
+[gd_resource type="SpriteFrames" format=3 uid="uid://ia30d2n1oe3y"]
+
+[ext_resource type="Texture2D" uid="uid://bfi356hbg8hc0" path="res://assets/Images/Units/archer.png" id="1_47vwh"]
+[ext_resource type="Texture2D" uid="uid://bufob2l4dvd6n" path="res://assets/Images/Units/bandit.png" id="2_iep04"]
+[ext_resource type="Texture2D" uid="uid://qw4hfvyboedp" path="res://assets/Images/Units/soldier.png" id="3_8qusy"]
+[ext_resource type="Texture2D" uid="uid://bs0xllxl5tyjq" path="res://assets/Images/Units/spearman.png" id="4_5fi8o"]
+
+[sub_resource type="AtlasTexture" id="7"]
+atlas = ExtResource("1_47vwh")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jrl3r"]
+atlas = ExtResource("1_47vwh")
+region = Rect2(0, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="4"]
+atlas = ExtResource("2_iep04")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_47vwh"]
+atlas = ExtResource("2_iep04")
+region = Rect2(0, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="3"]
+atlas = ExtResource("3_8qusy")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="5"]
+atlas = ExtResource("3_8qusy")
+region = Rect2(0, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="6"]
+atlas = ExtResource("4_5fi8o")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lgjun"]
+atlas = ExtResource("4_5fi8o")
+region = Rect2(0, 16, 16, 16)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("7")
+}],
+"loop": true,
+"name": &"archer-idle_0",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jrl3r")
+}],
+"loop": true,
+"name": &"archer-idle_1",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("4")
+}],
+"loop": true,
+"name": &"bandit-idle_0",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_47vwh")
+}],
+"loop": true,
+"name": &"bandit-idle_1",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"empty",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("3")
+}],
+"loop": true,
+"name": &"soldier-idle_0",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("5")
+}],
+"loop": true,
+"name": &"soldier-idle_1",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("6")
+}],
+"loop": true,
+"name": &"spearman-idle_0",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lgjun")
+}],
+"loop": true,
+"name": &"spearman-idle_1",
+"speed": 5.0
+}]

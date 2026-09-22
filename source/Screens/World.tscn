@@ -228,7 +228,7 @@ offset_top = 24.0
 offset_right = 336.0
 offset_bottom = 47.0
 
-[node name="Sprite2D" type="Sprite2D" parent="infoDisplay" unique_id=1505158880]
+[node name="cursor" type="Sprite2D" parent="infoDisplay" unique_id=1505158880]
 position = Vector2(24, 72)
 texture = ExtResource("20_6wlj0")
 centered = false

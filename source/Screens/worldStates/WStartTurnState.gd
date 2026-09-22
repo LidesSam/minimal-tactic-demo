@@ -9,7 +9,7 @@ func _ready():
 	pass
 
 func enter(actowner):
-	actowner.turnGroup="alphared"
+	actowner.turnGroup=Global.ALPHARED
 	
 	actowner.stateLbl.text="state:start"
 	actowner.state=actowner.STATE_IDLE

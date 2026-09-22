@@ -25,12 +25,12 @@ func handleInput(actowner, event):
 		print("mode:", mode)
 		match mode:
 			"info":
-				actowner.infoDisplay.display_units(actowner.units, "alphared")
+				actowner.infoDisplay.display_units(actowner, Global.ALPHARED)
 				actowner.state = actowner.STATE_INFO
 			"end turn":
 				actowner.state=actowner.STATE_IDLE
 				endstate = true
-				actowner.turnGroup = "alphablue"
+				actowner.turnGroup = Global.BETABLUE
 			"surrender":
 				pass
 			"exit":

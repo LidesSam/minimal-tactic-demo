@@ -44,6 +44,7 @@ const STATE_INFO = "info"
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	
 	Global.world=self
 	cursor.set_grid_pos()
 	set_process_input(true)
@@ -84,8 +85,16 @@ func _ready():
 	test()
 	day_end()
 
+
+func get_units_of_group(group):
+	var filteredUnits=[]
+	for unit in units:
+		if unit.is_of_player(group):
+			filteredUnits.push_back(unit)
+	return filteredUnits
+
 func foeturn():
-	return turnGroup!="alphared"
+	return turnGroup!=Global.ALPHARED
 
 func on_turn_menu():
 	return state == STATE_ON_TURN_MENU
@@ -136,13 +145,13 @@ func test():
 		units.push_back(unit)
 		match(i):
 			0:
-				unit.defineAs("swordman","blue")
+				unit.defineAs("swordman",Global.BETABLUE)
 			1:
-				unit.defineAs("spearman","blue")
+				unit.defineAs("spearman",Global.BETABLUE)
 			2:
-				unit.defineAs("archer","blue")
+				unit.defineAs("archer",Global.BETABLUE)
 			_:
-				unit.defineAs("swordman","blue")
+				unit.defineAs("swordman",Global.BETABLUE)
 	pass
 
 
